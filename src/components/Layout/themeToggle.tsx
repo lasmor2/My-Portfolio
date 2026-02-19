@@ -1,6 +1,7 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Theme } from "../../types";
 
 const STORAGE_KEY = "portfolio-theme";
 const ThemeToggle = () => {
@@ -21,14 +22,16 @@ const ThemeToggle = () => {
     applyTheme(theme);
   }, [theme]);
   const toggleTheme = () => {
-    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+    setTheme((currentTheme: Theme) =>
+      currentTheme === "dark" ? "light" : "dark",
+    );
   };
   const isDark = theme === "dark";
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      className="p-4.5 m-2 rounded-full border border-[color:var(--toggle-border)] bg-[var(--toggle-bg)] text-[var(--toggle-icon)] transition-all hover:scale-105 active:scale-95"
+      className="p-4.5 m-2 rounded-full border border-(--toggle-border) bg-(--toggle-bg) text-(--toggle-icon) transition-all hover:scale-105 active:scale-95"
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
       title={`Switch to ${isDark ? "light" : "dark"} theme`}
     >

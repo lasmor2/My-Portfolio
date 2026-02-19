@@ -1,18 +1,20 @@
-export const navLinks = [
+import { User, LayoutGrid, Wrench, MessageSquare } from "lucide-react";
+import { NavLink } from "../types";
+
+export const navLinks: NavLink[] = [
   {
     name: "About",
     link: "/about",
+    icon: User,
   },
   {
     name: "Projects",
     link: "/projects",
+    icon: LayoutGrid,
   },
   {
     name: "Skills",
     link: "/skills",
-  },
-  {
-    name: "Testimonials",
-    link: "/testimonials",
+    icon: Wrench,
   },
 ];
