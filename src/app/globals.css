@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
+@import "tw-animate-css";
 
 :root {
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
@@ -45,7 +45,7 @@
 
 html,
 body {
-  width: 100dvw;
+  width: 100%;
   overflow-x: hidden;
   background-color: var(--bg);
   color: var(--text);
