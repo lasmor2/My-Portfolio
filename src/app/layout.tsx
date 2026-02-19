@@ -22,14 +22,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `
+    (function () {
+      try {
+        var key = "portfolio-theme";
+        var saved = localStorage.getItem(key);
+        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (prefersLight ? "light" : "dark");
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {}
+    })();
+  `;
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
       </body>
     </html>
   );
 }
-
