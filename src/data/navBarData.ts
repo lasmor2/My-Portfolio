@@ -1,4 +1,4 @@
-import { User, LayoutGrid, Wrench, MessageSquare } from "lucide-react";
+import { User, LayoutGrid, Wrench } from "lucide-react";
 import { NavLink } from "../types";
 
 export const navLinks: NavLink[] = [

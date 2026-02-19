@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 :root {
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
@@ -22,6 +23,7 @@
 }
 
 :root[data-theme="light"] {
+  --gradient: radial-gradient(circle, #ffffff 0%, #f3f4f6 100%);
   --bg: #ffffff;
   --text: #111827;
   --surface: rgb(255 255 255 / 0.82);
@@ -48,8 +50,11 @@ body {
   background-color: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
-  font-family: "Mona Sans", sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-geist-sans), sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* -------------------------------------------------------------------------- */
+
