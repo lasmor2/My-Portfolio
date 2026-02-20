@@ -40,13 +40,13 @@ export default function ProjectsSection() {
               className="group relative flex flex-col h-full rounded-[2.5rem] border border-border bg-secondary/30 backdrop-blur-xl overflow-hidden hover:bg-secondary/50 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-500 active:scale-[0.98]"
             >
               {/* Project Image Container */}
-              <div className="relative aspect-video overflow-hidden">
-                {/* Fallback pattern if image is missing/broken */}
-                <div className="absolute inset-0 bg-linear-to-br from-emerald-500/20 to-secondary flex items-center justify-center -z-10">
-                  <FolderCode className="w-12 h-12 text-muted-foreground/20" />
-                </div>
+              {project.image && (
+                <div className="relative aspect-video overflow-hidden">
+                  {/* Fallback pattern if image is missing/broken */}
+                  <div className="absolute inset-0 bg-linear-to-br from-emerald-500/20 to-secondary flex items-center justify-center -z-10">
+                    <FolderCode className="w-12 h-12 text-muted-foreground/20" />
+                  </div>
 
-                {project.image && (
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -56,18 +56,27 @@ export default function ProjectsSection() {
                       (e.target as HTMLImageElement).style.opacity = "0";
                     }}
                   />
-                )}
 
-                {/* Overlay Glow */}
-                <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent opacity-60" />
+                  {/* Overlay Glow */}
+                  <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent opacity-60" />
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-background/80 border border-border text-foreground backdrop-blur-md">
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-background/80 border border-border text-foreground backdrop-blur-md">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Category Badge for imageless projects */}
+              {!project.image && (
+                <div className="px-8 pt-8">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary border border-border text-foreground">
                     {project.category}
                   </span>
                 </div>
-              </div>
+              )}
 
               {/* Content Container */}
               <div className="flex flex-col flex-1 p-8 space-y-4">

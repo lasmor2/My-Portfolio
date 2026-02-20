@@ -6,10 +6,29 @@ export interface Project {
   tech: string[];
   live: string;
   github: string;
-  image: string;
+  image?: string;
 }
 
 export const projects: Project[] = [
+  {
+    title: "Project 1: Backend Only",
+    category: "Backend Architecture",
+    description:
+      "This project focuses solely on the backend logic of a web application. It includes API development, database integration, authentication (JWT/Bcrypt), security middleware (Helmet/CORS), robust validation (Joi), logging (Morgan), and email capabilities (Nodemailer). Ideal for decoupled architectures where the frontend is handled independently.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Bcryptjs",
+      "Nodemailer",
+      "Joi",
+      "Helmet",
+      "Morgan",
+    ],
+    live: "",
+    github: "https://github.com/lasmor2/backend-only2.git",
+  },
   {
     title: "EcoSphere Dashboard",
     category: "Full-Stack Development",
@@ -18,17 +37,6 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "TailwindCSS", "GSAP", "Three.js"],
     live: "https://ecosphere.example.com",
     github: "https://github.com/lekan/ecosphere",
-    image: "/images/projects/ecosphere.png",
-  },
-  {
-    title: "Nexus Task API",
-    category: "Backend Architecture",
-    description:
-      "High-performance RESTful API powering enterprise task management systems. Features robust authentication, role-based access control, and automated CI/CD pipelines.",
-    tech: ["NestJS", "PostgreSQL", "Docker", "Redis", "Swagger"],
-    live: "",
-    github: "https://github.com/lekan/nexus-api",
-    image: "/images/projects/nexus-api.png",
   },
   {
     title: "Aura E-Commerce",
@@ -38,6 +46,5 @@ export const projects: Project[] = [
     tech: ["React", "Framer Motion", "Stripe API", "Node.js"],
     live: "https://aura-shop.example.com",
     github: "https://github.com/lekan/aura-shop",
-    image: "/images/projects/aura.png",
   },
 ];
