@@ -23,6 +23,14 @@ export async function POST(req: Request) {
       );
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address." },
+        { status: 400 },
+      );
+    }
+
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
     const safeMessage = escapeHtml(message);
@@ -32,7 +40,7 @@ export async function POST(req: Request) {
       from: "Portfolio Contact <onboarding@resend.dev>",
       // Note: Once you verify a domain, use your own email here
       to: ["okelolalekan2019@gmail.com"],
-      subject: `New Portfolio Message from ${safeName}`,
+      subject: `New Portfolio Message from ${name}`,
       replyTo: safeEmail,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">

@@ -45,7 +45,12 @@ export default function ContactSection() {
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setSuccess(false), 5000);
       } else {
-        setError("Failed to send message. Please try again.");
+        const data = await res.json().catch(() => ({}));
+        setError(
+          data.error ||
+            data.message ||
+            "Failed to send message. Please try again.",
+        );
       }
     } catch (err) {
       console.error("Submission error:", err);
@@ -115,7 +120,7 @@ export default function ContactSection() {
                     Email Me
                   </p>
                   <p className="text-white font-medium">
-                    okelolaolalekan2019@gmail.com
+                    okelolalekan2019@gmail.com
                   </p>
                 </div>
               </div>
