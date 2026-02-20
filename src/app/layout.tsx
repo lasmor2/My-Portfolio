@@ -27,7 +27,8 @@ export default function RootLayout({
       try {
         var key = "portfolio-theme";
         var saved = localStorage.getItem(key);
-        var theme = saved === "light" || saved === "dark" ? saved : "dark";
+       var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+       var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
         document.documentElement.dataset.theme = theme;
         if (theme === "dark") {
           document.documentElement.classList.add("dark");
