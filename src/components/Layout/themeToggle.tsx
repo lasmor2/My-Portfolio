@@ -23,6 +23,11 @@ const ThemeToggle = () => {
 
   const applyTheme = (nextTheme: Theme) => {
     document.documentElement.dataset.theme = nextTheme;
+    if (nextTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     window.localStorage.setItem(STORAGE_KEY, nextTheme);
   };
 
@@ -48,4 +53,3 @@ const ThemeToggle = () => {
 };
 
 export default ThemeToggle;
-

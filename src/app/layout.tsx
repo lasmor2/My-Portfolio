@@ -29,6 +29,11 @@ export default function RootLayout({
         var saved = localStorage.getItem(key);
         var theme = saved === "light" || saved === "dark" ? saved : "dark";
         document.documentElement.dataset.theme = theme;
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
       } catch (error) {}
     })();
   `;
