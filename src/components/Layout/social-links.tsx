@@ -2,25 +2,36 @@ import Link from "next/link";
 import { Github, Linkedin } from "lucide-react";
 
 export function SocialLinks() {
-  return (
-    <div className="flex justify-center gap-6">
-      <Link
-        href="https://github.com/your-username"
-        target="_blank"
-        aria-label="GitHub Profile"
-        className="text-muted-foreground hover:text-foreground transition"
-      >
-        <Github size={22} />
-      </Link>
+  const links = [
+    {
+      href: "https://github.com/your-username",
+      label: "GitHub",
+      icon: Github,
+      ariaLabel: "GitHub Profile",
+    },
+    {
+      href: "https://linkedin.com/in/your-username",
+      label: "LinkedIn",
+      icon: Linkedin,
+      ariaLabel: "LinkedIn Profile",
+    },
+  ];
 
-      <Link
-        href="https://linkedin.com/in/your-username"
-        target="_blank"
-        aria-label="LinkedIn Profile"
-        className="text-muted-foreground hover:text-foreground transition"
-      >
-        <Linkedin size={22} />
-      </Link>
+  return (
+    <div className="flex items-center gap-3">
+      {links.map(({ href, label, icon: Icon, ariaLabel }) => (
+        <Link
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={ariaLabel}
+          className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/25 transition-all hover:scale-105 text-xs font-medium backdrop-blur-sm"
+        >
+          <Icon size={14} className="shrink-0" />
+          {label}
+        </Link>
+      ))}
     </div>
   );
 }
