@@ -27,10 +27,7 @@ export default function RootLayout({
       try {
         var key = "portfolio-theme";
         var saved = localStorage.getItem(key);
-        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-        var theme = saved === "light" || saved === "dark"
-          ? saved
-          : (prefersLight ? "light" : "dark");
+        var theme = saved === "light" || saved === "dark" ? saved : "dark";
         document.documentElement.dataset.theme = theme;
       } catch (error) {}
     })();
