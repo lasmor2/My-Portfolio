@@ -39,12 +39,12 @@ export const projects: Project[] = [
     github: "https://github.com/lasmor2/jenkins-docker.git",
   },
   {
-    title: "Aura E-Commerce",
-    category: "Creative Frontend",
+    title: "Project 3: Expo Mobile App",
+    category: "Mobile Development",
     description:
-      "A premium lifestyle e-commerce platform with fluid micro-interactions, seamless transitions, and a focus on visual storytelling and user engagement.",
-    tech: ["React", "Framer Motion", "Stripe API", "Node.js"],
-    live: "https://aura-shop.example.com",
-    github: "https://github.com/lekan/aura-shop",
+      "A cross-platform mobile application built with Expo and React Native. Features secure user authentication via Clerk, custom UI components using Expo Vector Icons, and a modern mobile-first architecture.",
+    tech: ["React Native", "Expo", "Clerk", "TypeScript", "Vector Icons"],
+    live: "",
+    github: "https://github.com/lasmor2/reactNative-mobile",
   },
 ];
