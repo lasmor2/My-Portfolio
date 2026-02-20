@@ -47,4 +47,13 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/lasmor2/reactNative-mobile",
   },
+  {
+    title: "Project 4: WalletNative Mobile App",
+    category: "FinTech / Full-Stack",
+    description:
+      "A digital wallet application featuring a React Native frontend built with Expo and a robust custom backend powered by Express.js. Focuses on secure transaction handling, real-time balance updates, and a sleek user interface.",
+    tech: ["React Native", "Expo", "Express.js", "Node.js", "TypeScript"],
+    live: "",
+    github: "https://github.com/lasmor2/walletNative",
+  },
 ];
