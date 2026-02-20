@@ -69,7 +69,14 @@ export default function SkillsSection() {
                         </div>
 
                         {/* Progress Bar Container */}
-                        <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                        <div
+                          className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden"
+                          role="progressbar"
+                          aria-valuenow={skill.percentage}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                          aria-label={`${skill.name} proficiency`}
+                        >
                           {/* Shimmer effect inside progress bar */}
                           <div
                             className="h-full bg-linear-to-r from-emerald-500/80 to-emerald-400 rounded-full relative"
