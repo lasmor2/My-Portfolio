@@ -1,7 +1,22 @@
-import React from "react";
+import NavBarPage from "@/components/Layout/navBar";
+import ContactSection from "@/components/sections/contact";
 
-const Contact = () => {
-  return <div>Contact</div>;
-};
+export default function ContactPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-transparent">
+      <NavBarPage />
 
-export default Contact;
+      <main className="flex-1 pt-24 md:pt-32 pb-20">
+        <ContactSection />
+      </main>
+
+      <footer className="py-6 text-center text-xs text-gray-600 border-t border-white/5">
+        <p>
+          © {new Date().getFullYear()}{" "}
+          <span className="text-gray-400 font-medium">Lasmor</span>. All rights
+          reserved.
+        </p>
+      </footer>
+    </div>
+  );
+}
