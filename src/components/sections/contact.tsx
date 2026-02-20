@@ -70,7 +70,7 @@ export default function ContactSection() {
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Let&apos;s build something <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-white to-gray-500">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-400 via-white to-gray-500">
                   extraordinary
                 </span>
               </h2>
@@ -103,7 +103,7 @@ export default function ContactSection() {
 
             {/* Quick Contact Info */}
             <div className="space-y-6">
-              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
+              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm">
                 <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
                   <Mail size={20} />
                 </div>
@@ -117,7 +117,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
+              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm">
                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
                   <MapPin size={20} />
                 </div>
@@ -131,7 +131,7 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
+              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm">
                 <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
                   <Clock size={20} />
                 </div>
@@ -157,7 +157,7 @@ export default function ContactSection() {
             <div className="relative group">
               <div className="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-emerald-500/20 via-white/5 to-transparent blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative p-8 md:p-10 rounded-[2rem] border border-white/10 bg-black/40 backdrop-blur-2xl shadow-2xl">
+              <div className="relative p-8 md:p-10 rounded-4xl border border-white/10 bg-black/40 backdrop-blur-2xl shadow-2xl">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Input */}
                   <div className="space-y-2">
