@@ -56,4 +56,13 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/lasmor2/walletNative",
   },
+  {
+    title: "Project 5: Stock-Tracker",
+    category: "Portfolio & Finance",
+    description:
+      "A sophisticated stock market tracking application built with Next.js. It allows users to monitor real-time stock prices, visualize market trends through interactive charts, and manage their investment portfolios effectively.",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Financial APIs"],
+    live: "",
+    github: "https://github.com/lasmor2/Stock-Tracker",
+  },
 ];
