@@ -90,8 +90,8 @@ export const ProfileImage = ({
   <div className={containerClassName}>
     <div className="relative">
       <div
-        className={`absolute -inset-3 rounded-3xl bg-foreground/5 blur-xl pointer-events-none ${isDesktop ? "-inset-4 blur-2xl" : ""}`}
-      />
+        className={`absolute ${isDesktop ? "-inset-4 blur-2xl" : "-inset-3 blur-xl"} rounded-3xl bg-foreground/5 pointer-events-none`}
+      />{" "}
       <div className={imageWrapperClassName}>
         <div
           className={`relative w-full aspect-3/4 rounded-3xl overflow-hidden border border-border/50 shadow-2xl ${isDesktop ? "shadow-foreground/20" : "shadow-foreground/10"}`}
