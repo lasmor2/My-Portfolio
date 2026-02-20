@@ -78,6 +78,27 @@ export default function ContactSection() {
                 Whether you have a specific project in mind or just want to chat
                 about development, I&apos;m always open to new opportunities.
               </p>
+
+              <div className="space-y-3 pt-2">
+                <p className="text-sm font-bold uppercase tracking-widest text-emerald-400">
+                  Available for:
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Full-time roles",
+                    "Freelance projects",
+                    "Contract work",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-3 text-gray-300"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                      <span className="text-sm font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Quick Contact Info */}
@@ -91,7 +112,7 @@ export default function ContactSection() {
                     Email Me
                   </p>
                   <p className="text-white font-medium">
-                    okelolaolalekan2@gmail.com
+                    okelolaolalekan2019@gmail.com
                   </p>
                 </div>
               </div>
