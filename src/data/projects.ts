@@ -30,13 +30,13 @@ export const projects: Project[] = [
     github: "https://github.com/lasmor2/backend-only2.git",
   },
   {
-    title: "EcoSphere Dashboard",
-    category: "Full-Stack Development",
+    title: "Project 2: Jenkins + Docker + Kubernetes CI/CD Pipeline",
+    category: "DevOps & Automation",
     description:
-      "A sophisticated environmental monitoring dashboard featuring real-time data visualization, interactive maps, and predictive analytics for climate trends.",
-    tech: ["Next.js", "TypeScript", "TailwindCSS", "GSAP", "Three.js"],
-    live: "https://ecosphere.example.com",
-    github: "https://github.com/lekan/ecosphere",
+      "This project demonstrates an end-to-end CI/CD pipeline automation. It covers building Docker images, pushing to DockerHub, and deploying to a Kubernetes cluster. Features Jenkins Pipeline integration with Kubernetes CLI and Docker plugins for seamless delivery.",
+    tech: ["Jenkins", "Docker", "Kubernetes", "Git", "kubectl", "CI/CD"],
+    live: "",
+    github: "https://github.com/lasmor2/jenkins-docker.git",
   },
   {
     title: "Aura E-Commerce",
