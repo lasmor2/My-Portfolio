@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { navLinks } from "../../data/navBatData";
 import Link from "next/link";

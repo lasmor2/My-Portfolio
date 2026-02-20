@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SocialLinks } from "@/components/Layout/social-links";
-import { techStack, heroStats } from "@/data/heroData";
+import { techStack, heroBadge, heroStats } from "@/data/heroData";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
@@ -62,7 +62,7 @@ export default function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            Open to opportunities
+            {heroBadge.label}
             <Sparkles className="w-3 h-3 text-yellow-400" />
           </span>
         </div>
@@ -138,7 +138,7 @@ export default function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              Open to opportunities
+              {heroBadge.label}
               <Sparkles className="w-3 h-3 text-yellow-400" />
             </span>
           </div>
