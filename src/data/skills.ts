@@ -13,10 +13,6 @@ import {
   Palette,
   Zap,
   Variable,
-  Blocks,
-  FileCode,
-  Layout,
-  HardDrive,
 } from "lucide-react";
 
 export const skillCategories = [

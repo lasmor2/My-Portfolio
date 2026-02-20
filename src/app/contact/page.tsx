@@ -1,5 +1,6 @@
 import NavBarPage from "@/components/Layout/navBar";
 import ContactSection from "@/components/sections/contact";
+import Footer from "@/components/Layout/footer";
 
 export default function ContactPage() {
   return (
@@ -10,13 +11,7 @@ export default function ContactPage() {
         <ContactSection />
       </main>
 
-      <footer className="py-6 text-center text-xs text-gray-600 border-t border-white/5">
-        <p>
-          © {new Date().getFullYear()}{" "}
-          <span className="text-gray-400 font-medium">Lasmor</span>. All rights
-          reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
