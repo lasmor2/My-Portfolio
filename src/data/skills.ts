@@ -13,6 +13,7 @@ import {
   Palette,
   Zap,
   Variable,
+  Smartphone,
 } from "lucide-react";
 
 export const skillCategories = [
@@ -37,6 +38,12 @@ export const skillCategories = [
       },
       { name: "GSAP", level: "Beginner", percentage: 40, icon: SparklesIcon },
       { name: "Three.js", level: "Beginner", percentage: 35, icon: Layers },
+      {
+        name: "React Native",
+        level: "Beginner",
+        percentage: 50,
+        icon: Smartphone,
+      },
     ],
   },
   {
