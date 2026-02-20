@@ -4,13 +4,13 @@ import { Github, Linkedin } from "lucide-react";
 export function SocialLinks() {
   const links = [
     {
-      href: "https://github.com/your-username",
+      href: "https://github.com/lasmor2",
       label: "GitHub",
       icon: Github,
       ariaLabel: "GitHub Profile",
     },
     {
-      href: "https://linkedin.com/in/your-username",
+      href: "https://www.linkedin.com/in/lekan-okelola-17b828285/",
       label: "LinkedIn",
       icon: Linkedin,
       ariaLabel: "LinkedIn Profile",
