@@ -1,8 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+<<<<<<< HEAD
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+=======
+>>>>>>> main
 
 :root {
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
@@ -58,6 +61,7 @@
 }
 
 :root[data-theme="light"] {
+  --gradient: radial-gradient(circle, #ffffff 0%, #f3f4f6 100%);
   --bg: #ffffff;
   --text: #111827;
   --surface: rgb(255 255 255 / 0.82);
@@ -84,7 +88,11 @@ body {
   background-color: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
+<<<<<<< HEAD
   font-family: "Mona Sans", sans-serif;
+=======
+  font-family: var(--font-geist-sans), sans-serif;
+>>>>>>> main
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -92,6 +100,7 @@ body {
 
 /* -------------------------------------------------------------------------- */
 
+<<<<<<< HEAD
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -175,3 +184,5 @@ body {
     @apply bg-background text-foreground;
   }
 }
+=======
+>>>>>>> main
