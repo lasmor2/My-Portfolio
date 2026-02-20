@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,15 +14,18 @@ import {
   Sparkles,
   MapPin,
   Clock,
+  AlertCircle,
 } from "lucide-react";
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
+    setError(null);
 
     const formData = new FormData(e.currentTarget);
 
@@ -41,16 +43,17 @@ export default function ContactSection() {
       if (res.ok) {
         setSuccess(true);
         (e.target as HTMLFormElement).reset();
-        // Reset success message after 5 seconds
         setTimeout(() => setSuccess(false), 5000);
+      } else {
+        setError("Failed to send message. Please try again.");
       }
-    } catch (error) {
-      console.error("Submission error:", error);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError("Network error. Please check your connection.");
     } finally {
       setLoading(false);
     }
   }
-
   return (
     <section className="relative w-full py-10 px-4 md:px-0">
       {/* Background Orbs */}
@@ -161,7 +164,10 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Input */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                    <label
+                      htmlFor="contact-name"
+                      className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1"
+                    >
                       Full Name
                     </label>
                     <div className="relative">
@@ -169,6 +175,7 @@ export default function ContactSection() {
                         <User size={18} />
                       </div>
                       <Input
+                        id="contact-name"
                         name="name"
                         placeholder="John Doe"
                         required
@@ -179,7 +186,10 @@ export default function ContactSection() {
 
                   {/* Email Input */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                    <label
+                      htmlFor="contact-email"
+                      className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1"
+                    >
                       Email Address
                     </label>
                     <div className="relative">
@@ -187,6 +197,7 @@ export default function ContactSection() {
                         <AtSign size={18} />
                       </div>
                       <Input
+                        id="contact-email"
                         name="email"
                         type="email"
                         placeholder="john@example.com"
@@ -198,7 +209,10 @@ export default function ContactSection() {
 
                   {/* Message Input */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                    <label
+                      htmlFor="contact-message"
+                      className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1"
+                    >
                       Your Message
                     </label>
                     <div className="relative">
@@ -206,6 +220,7 @@ export default function ContactSection() {
                         <MessageSquare size={18} />
                       </div>
                       <Textarea
+                        id="contact-message"
                         name="message"
                         placeholder="How can I help you today?"
                         required
@@ -248,6 +263,13 @@ export default function ContactSection() {
                     <div className="flex items-center justify-center gap-2 text-emerald-400 text-sm font-medium animate-in fade-in slide-in-from-top-2">
                       <CheckCircle2 size={16} />
                       Thanks! I&apos;ll get back to you shortly.
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="flex items-center justify-center gap-2 text-red-400 text-sm font-medium animate-in fade-in slide-in-from-top-2">
+                      <AlertCircle size={16} />
+                      {error}
                     </div>
                   )}
                 </form>
