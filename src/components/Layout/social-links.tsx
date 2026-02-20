@@ -62,7 +62,7 @@ export function SocialLinks({
           className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-white/10 bg-white/5 text-gray-400 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-lg ${color} ${glow} backdrop-blur-md overflow-hidden`}
         >
           {/* Subtle background glow effect on hover */}
-          <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <Icon
             size={18}
