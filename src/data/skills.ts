@@ -13,10 +13,7 @@ import {
   Palette,
   Zap,
   Variable,
-  Blocks,
-  FileCode,
-  Layout,
-  HardDrive,
+  Sparkle,
 } from "lucide-react";
 
 export const skillCategories = [
@@ -39,7 +36,7 @@ export const skillCategories = [
         percentage: 85,
         icon: Palette,
       },
-      { name: "GSAP", level: "Beginner", percentage: 40, icon: SparklesIcon },
+      { name: "GSAP", level: "Beginner", percentage: 40, icon: Sparkle },
       { name: "Three.js", level: "Beginner", percentage: 35, icon: Layers },
     ],
   },
@@ -76,5 +73,3 @@ export const skillCategories = [
     ],
   },
 ];
-
-import { Sparkles as SparklesIcon } from "lucide-react";

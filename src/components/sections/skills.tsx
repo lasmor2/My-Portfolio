@@ -1,5 +1,5 @@
 import { skillCategories } from "@/data/skills";
-import { BadgeCheck, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function SkillsSection() {
   return (
