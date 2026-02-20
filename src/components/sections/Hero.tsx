@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { SocialLinks } from "@/components/Layout/social-links";
 import { techStack, heroStats } from "@/data/heroData";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
-import { div } from "three/tsl";
 
 export default function HeroSection() {
   return (
