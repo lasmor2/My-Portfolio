@@ -124,7 +124,10 @@ export default function HeroSection() {
         {/* Text content */}
         <div className="flex flex-col gap-6 text-left">
           {/* Headline */}
-          <h1 className="text-7xl font-extrabold tracking-tight leading-tight">
+          <h1
+            aria-hidden="true"
+            className="text-7xl font-extrabold tracking-tight leading-tight"
+          >
             <span className="block text-white">Full-Stack</span>
             <span className="block bg-clip-text text-transparent bg-linear-to-br from-white via-gray-300 to-gray-500">
               Developer
