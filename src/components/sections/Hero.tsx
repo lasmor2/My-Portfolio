@@ -17,9 +17,9 @@ export default function HeroSection() {
         {/* Headline  mobile*/}
         <h1 className="text-6xl font-bold tracking-tight leading-tight text-center">
           <span className="block text-white">Full-Stack</span>
-          <span className="block bg-clip-text text-white bg-linear-to-br from-white via-gray-300 to-gray-500">
+          <span className="block bg-clip-text text-transparent bg-linear-to-br from-white via-gray-300 to-gray-500">
             Developer
-          </span>
+          </span>{" "}
         </h1>
 
         {/* Profile image — compact, centred */}
@@ -104,10 +104,10 @@ export default function HeroSection() {
             variant="outline"
             className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm transition-all hover:scale-105 active:scale-95"
           >
-            <Link href="/contact">
+            <a href="/resume.pdf" download>
               <Download className="w-3.5 h-3.5" />
               Download CV
-            </Link>
+            </a>
           </Button>
         </div>
 
@@ -180,10 +180,10 @@ export default function HeroSection() {
               variant="outline"
               className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm transition-all hover:scale-105 active:scale-95"
             >
-              <Link href="/contact">
+              <a href="/resume.pdf" download>
                 <Download className="w-4 h-4" />
                 Download CV
-              </Link>
+              </a>
             </Button>
           </div>
 
