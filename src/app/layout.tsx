@@ -17,28 +17,28 @@ export const metadata: Metadata = {
   description: "Created my portFolio with Next.js",
 };
 
+const themeScript = `
+  (function () {
+    try {
+      var key = "portfolio-theme";
+      var saved = localStorage.getItem(key);
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch (error) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const themeScript = `
-    (function () {
-      try {
-        var key = "portfolio-theme";
-        var saved = localStorage.getItem(key);
-       var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-       var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
-        document.documentElement.dataset.theme = theme;
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      } catch (error) {}
-    })();
-  `;
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
