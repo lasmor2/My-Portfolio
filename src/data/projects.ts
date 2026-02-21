@@ -27,7 +27,7 @@ export const projects: Project[] = [
       "Morgan",
     ],
     live: "",
-    github: "https://github.com/lasmor2/backend-only2.git",
+    github: "https://github.com/lasmor2/backend-only2",
   },
   {
     title: "Project 2: Jenkins + Docker + Kubernetes CI/CD Pipeline",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "This project demonstrates an end-to-end CI/CD pipeline automation. It covers building Docker images, pushing to DockerHub, and deploying to a Kubernetes cluster. Features Jenkins Pipeline integration with Kubernetes CLI and Docker plugins for seamless delivery.",
     tech: ["Jenkins", "Docker", "Kubernetes", "Git", "kubectl", "CI/CD"],
     live: "",
-    github: "https://github.com/lasmor2/jenkins-docker.git",
+    github: "https://github.com/lasmor2/jenkins-docker",
   },
   {
     title: "Project 3: Expo Mobile App",
