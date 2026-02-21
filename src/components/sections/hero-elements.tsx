@@ -84,7 +84,7 @@ export const HeroCTAs = ({ size }: { size: "sm" | "lg" }) => (
         variant="outline"
         className="rounded-full border-border bg-secondary/50 text-foreground hover:bg-secondary transition-all hover:scale-105 active:scale-95"
       >
-        <a href="/resume.pdf" download>
+        <a href="/documents/resume.pdf" download>
           <Download className={size === "sm" ? "w-3.5 h-3.5" : "w-4 h-4"} />
           Download CV
         </a>
