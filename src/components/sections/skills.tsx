@@ -1,5 +1,6 @@
 import { skillCategories } from "@/data/skills";
 import { BadgeCheck, Sparkles } from "lucide-react";
+import ScrollReveal from "../animations/ScrollReveal";
 
 export default function SkillsSection() {
   return (
@@ -10,27 +11,34 @@ export default function SkillsSection() {
 
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400">
-            <Sparkles size={14} />
-            <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
-              Expertise
-            </span>
+        <ScrollReveal direction="up" delay={0.1}>
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400">
+              <Sparkles size={14} />
+              <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
+                Expertise
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+              Technical{" "}
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
+                Skills
+              </span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+              A comprehensive overview of the technologies and tools I use to
+              build robust, scalable, and modern digital applications.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Technical{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
-              Skills
-            </span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            A comprehensive overview of the technologies and tools I use to
-            build robust, scalable, and modern digital applications.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <ScrollReveal
+          direction="up"
+          delay={0.3}
+          stagger={0.2}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
           {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
@@ -95,10 +103,15 @@ export default function SkillsSection() {
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
 
         {/* Floating Tooltips or Tags for secondary mentions */}
-        <div className="pt-12 border-t border-border flex flex-wrap justify-center gap-3">
+        <ScrollReveal
+          direction="up"
+          delay={0.5}
+          stagger={0.05}
+          className="pt-12 border-t border-border flex flex-wrap justify-center gap-3"
+        >
           <p className="w-full text-center text-xs text-muted-foreground uppercase tracking-widest font-bold mb-4">
             Supporting Ecosystem
           </p>
@@ -119,7 +132,7 @@ export default function SkillsSection() {
               {tool}
             </span>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
