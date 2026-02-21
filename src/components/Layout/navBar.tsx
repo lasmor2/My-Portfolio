@@ -17,7 +17,7 @@ const NavBarPage = () => {
     if (isOpen) {
       timerRef.current = setTimeout(() => {
         closeMenu();
-      }, 3000); // 5 seconds of inactivity
+      }, 5000); // 5 seconds of inactivity
     }
   }, [isOpen, closeMenu]);
 
@@ -118,7 +118,7 @@ const NavBarPage = () => {
         {isOpen && (
           <div
             id="mobile-menu"
-            className="absolute top-full right-0 mt-3 w-56 p-3 bg-(--surface) backdrop-blur-xl border border-(--surface-border) rounded-2xl md:hidden flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200"
+            className="absolute top-full right-0 mt-3 w-56 p-3 bg-(--surface) backdrop-blur-xl border border-(--surface-border) rounded-2xl md:hidden flex flex-col gap-3 animate-fade-in-down"
           >
             <nav>
               <ul className="flex flex-col gap-2">

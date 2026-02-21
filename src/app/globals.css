@@ -150,6 +150,18 @@ body {
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @theme inline {
   --animate-shimmer: shimmer 2s infinite;
+  --animate-fade-in-down: fadeInDown 0.2s ease-out;
 }
