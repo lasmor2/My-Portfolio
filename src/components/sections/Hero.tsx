@@ -1,4 +1,5 @@
 import { SocialLinks } from "@/components/Layout/social-links";
+import HeroCanvas from "@/components/three/HeroCanvas";
 import {
   HeroHeadline,
   HeroBadge,
@@ -11,11 +12,8 @@ import {
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-start md:mt-20 md:items-center px-5 md:px-6 overflow-hidden">
-      {/* Background glow blobs */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-foreground/3 rounded-full blur-3xl" />
-      </div>
+      {/* Three.js Background */}
+      <HeroCanvas />
 
       {/* MOBILE LAYOUT */}
       <div className="flex md:hidden flex-col w-full pt-28 pb-16 gap-6">
