@@ -5,5 +5,5 @@ export type Theme = "dark" | "light";
 export interface NavLink {
   name: string;
   link: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className?: string }>;
 }

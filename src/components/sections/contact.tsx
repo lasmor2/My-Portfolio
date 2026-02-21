@@ -281,14 +281,14 @@ export default function ContactSection() {
                     </Button>
 
                     {success && (
-                      <div className="flex items-center justify-center gap-2 text-emerald-500 dark:text-emerald-400 text-sm font-medium animate-in fade-in slide-in-from-top-2">
+                      <div className="flex items-center justify-center gap-2 text-emerald-500 dark:text-emerald-400 text-sm font-medium animate-fade-in-down">
                         <CheckCircle2 size={16} />
                         Thanks! I&apos;ll get back to you shortly.
                       </div>
                     )}
 
                     {error && (
-                      <div className="flex items-center justify-center gap-2 text-red-500 dark:text-red-400 text-sm font-medium animate-in fade-in slide-in-from-top-2">
+                      <div className="flex items-center justify-center gap-2 text-red-500 dark:text-red-400 text-sm font-medium animate-fade-in-down">
                         <AlertCircle size={16} />
                         {error}
                       </div>
