@@ -65,4 +65,13 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/lasmor2/Stock-Tracker",
   },
+  {
+    title: "Project 6: Portfolio Website",
+    category: "Web Development",
+    description:
+      "A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features a sleek, glassmorphism-inspired design, smooth animations, and a dedicated projects section to showcase development work.",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    live: "",
+    github: "https://github.com/lasmor2/my-portfoil",
+  },
 ];
