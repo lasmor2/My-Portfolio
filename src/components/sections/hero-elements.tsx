@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { techStack, heroBadge, heroStats } from "@/data/heroData";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Reveal from "@/components/animations/Reveal";
 
 export const HeroHeadline = ({ className }: { className?: string }) => (
@@ -97,51 +101,70 @@ export const ProfileImage = ({
   containerClassName?: string;
   imageWrapperClassName?: string;
   isDesktop?: boolean;
-}) => (
-  <Reveal direction={isDesktop ? "right" : "up"} delay={0.5} duration={1.5}>
-    <div className={containerClassName}>
-      <div className="relative">
-        <div
-          className={`absolute ${isDesktop ? "-inset-4 blur-2xl" : "-inset-3 blur-xl"} rounded-3xl bg-foreground/5 pointer-events-none`}
-        />{" "}
-        <div className={imageWrapperClassName}>
-          <div
-            className={`relative w-full aspect-3/4 rounded-3xl overflow-hidden border border-border/50 shadow-2xl ${isDesktop ? "shadow-foreground/20" : "shadow-foreground/10"}`}
-          >
-            <Image
-              src="/images/my-pix.png"
-              alt="Profile picture"
-              fill
-              priority
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent" />
-          </div>
+}) => {
+  const floatRef = useRef<HTMLDivElement>(null);
 
-          {heroStats.map((stat, i) => (
+  useGSAP(
+    () => {
+      if (!floatRef.current) return;
+
+      gsap.to(floatRef.current, {
+        y: -10,
+        duration: 3,
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+    },
+    { scope: floatRef },
+  );
+
+  return (
+    <Reveal direction={isDesktop ? "right" : "up"} delay={0.5} duration={1.5}>
+      <div className={containerClassName}>
+        <div className="relative" ref={floatRef}>
+          <div
+            className={`absolute ${isDesktop ? "-inset-4 blur-2xl" : "-inset-3 blur-xl"} rounded-3xl bg-foreground/5 pointer-events-none`}
+          />{" "}
+          <div className={imageWrapperClassName}>
             <div
-              key={stat.value}
-              className={`absolute flex items-center bg-background/80 border border-border backdrop-blur-md shadow-xl
+              className={`relative w-full aspect-3/4 rounded-3xl overflow-hidden border border-border/50 shadow-2xl ${isDesktop ? "shadow-foreground/20" : "shadow-foreground/10"}`}
+            >
+              <Image
+                src="/images/my-pix.png"
+                alt="Profile picture"
+                fill
+                priority
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent" />
+            </div>
+
+            {heroStats.map((stat, i) => (
+              <div
+                key={stat.value}
+                className={`absolute flex items-center bg-background/80 border border-border backdrop-blur-md shadow-xl
                 ${
                   isDesktop
                     ? `gap-2 px-4 py-2.5 rounded-2xl ${i === 0 ? "-bottom-4 -left-5" : "-top-4 -right-5"}`
                     : `gap-1.5 px-3 py-2 rounded-xl ${i === 0 ? "-bottom-3 -left-4" : "-top-3 -right-4"}`
                 }`}
-            >
-              <span
-                className={`${isDesktop ? "text-2xl" : "text-lg"} font-bold text-foreground leading-none`}
               >
-                {stat.value}
-              </span>
-              <span
-                className={`${isDesktop ? "text-xs" : "text-[10px]"} text-muted-foreground leading-tight whitespace-pre-line`}
-              >
-                {stat.label}
-              </span>
-            </div>
-          ))}
+                <span
+                  className={`${isDesktop ? "text-2xl" : "text-lg"} font-bold text-foreground leading-none`}
+                >
+                  {stat.value}
+                </span>
+                <span
+                  className={`${isDesktop ? "text-xs" : "text-[10px]"} text-muted-foreground leading-tight whitespace-pre-line`}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </Reveal>
-);
+    </Reveal>
+  );
+};

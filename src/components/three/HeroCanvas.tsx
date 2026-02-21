@@ -1,5 +1,4 @@
 "use client";
-
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Sphere, MeshDistortMaterial, Stars } from "@react-three/drei";
 import { useRef, useMemo } from "react";
@@ -7,13 +6,13 @@ import * as THREE from "three";
 
 const AnimatedShape = () => {
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
+    <Float speed={1} rotationIntensity={1} floatIntensity={1}>
       <Sphere args={[1, 64, 64]}>
         <MeshDistortMaterial
           color="hsl(var(--emerald-500))"
           attach="material"
           distort={0.4}
-          speed={3}
+          speed={1}
           roughness={0}
           emissive="hsl(var(--emerald-500))"
           emissiveIntensity={0.5}
@@ -37,10 +36,14 @@ const Particles = ({ count = 5000 }) => {
   const points = useMemo(() => generateParticles(count), [count]);
 
   const pointsRef = useRef<THREE.Points>(null!);
+  const timeRef = useRef(0);
 
-  useFrame((state) => {
-    pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-    pointsRef.current.rotation.x = state.clock.getElapsedTime() * 0.03;
+  useFrame((_state, delta) => {
+    timeRef.current += delta;
+    if (pointsRef.current) {
+      pointsRef.current.rotation.y = timeRef.current * 0.05;
+      pointsRef.current.rotation.x = timeRef.current * 0.03;
+    }
   });
 
   return (

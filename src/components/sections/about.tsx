@@ -15,7 +15,7 @@ export default function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* ── Profile Image Column (LG: 5 cols) ── */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-1">
-          <ScrollReveal direction="left" delay={0.2}>
+          <ScrollReveal direction="left" delay={0.5}>
             <div className="relative group">
               {/* Outer Glow Ring */}
               <div className="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-foreground/20 via-foreground/5 to-transparent blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />

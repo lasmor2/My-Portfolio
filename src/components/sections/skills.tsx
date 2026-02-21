@@ -4,7 +4,7 @@ import ScrollReveal from "../animations/ScrollReveal";
 
 export default function SkillsSection() {
   return (
-    <section className="relative w-full py-10 px-4 md:px-0">
+    <section className="relative w-full py-10 md:py-5 px-4 md:px-0">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 -z-10 w-72 h-72 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
