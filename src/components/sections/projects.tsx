@@ -3,37 +3,45 @@ import { Project, projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, FolderCode } from "lucide-react";
 import Image from "next/image";
+import ScrollReveal from "../animations/ScrollReveal";
 
 export default function ProjectsSection() {
   return (
-    <section className="relative w-full py-10 px-4 md:py-20 md:px-0 overflow-visible">
+    <section className="relative w-full py-10 md:py-5 px-4 md:px-0 overflow-visible">
       {/* Background glow accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500/3 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header */}
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-muted-foreground w-fit">
-            <FolderCode size={14} className="text-emerald-500" />
-            <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
-              My Portfolio
-            </span>
+        <ScrollReveal direction="up" delay={0.1}>
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-muted-foreground w-fit">
+              <FolderCode size={14} className="text-emerald-500" />
+              <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
+                My Portfolio
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+              Featured{" "}
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
+                Projects
+              </span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+              A selection of my most recent work, ranging from complex
+              enterprise APIs to creative frontend experiences.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Featured{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
-              Projects
-            </span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            A selection of my most recent work, ranging from complex enterprise
-            APIs to creative frontend experiences.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ScrollReveal
+          direction="up"
+          delay={0.3}
+          stagger={0.15}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {projects.map((project: Project, idx: number) => (
             <div
               key={project.title}
@@ -143,7 +151,7 @@ export default function ProjectsSection() {
               <div className="absolute inset-0 rounded-[2.5rem] border border-emerald-500/0 group-hover:border-emerald-500/20 pointer-events-none transition-colors duration-500" />
             </div>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
