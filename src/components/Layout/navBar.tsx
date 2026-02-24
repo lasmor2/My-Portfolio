@@ -49,7 +49,7 @@ const NavBarPage = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-start items-center py-4 px-6 md:px-10 font-sans">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-start items-center py-4 px-6 font-sans">
       <div className="flex items-center mr-6 md:mr-16">
         {/* Logo */}
         <Link
@@ -70,7 +70,7 @@ const NavBarPage = () => {
         ref={menuRef}
         onMouseMove={resetTimer}
         onClick={resetTimer}
-        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
+        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
       >
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
