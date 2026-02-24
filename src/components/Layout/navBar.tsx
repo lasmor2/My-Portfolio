@@ -9,6 +9,7 @@ const NavBarPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lastMoveRef = useRef(0);
 
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
@@ -20,6 +21,14 @@ const NavBarPage = () => {
       }, 5000); // 5 seconds of inactivity
     }
   }, [isOpen, closeMenu]);
+
+  const throttledResetTimer = useCallback(() => {
+    const now = Date.now();
+    if (now - lastMoveRef.current > 250) {
+      lastMoveRef.current = now;
+      resetTimer();
+    }
+  }, [resetTimer]);
 
   useEffect(() => {
     resetTimer();
@@ -68,7 +77,7 @@ const NavBarPage = () => {
       {/* Desktop & Mobile Container */}
       <div
         ref={menuRef}
-        onMouseMove={resetTimer}
+        onMouseMove={throttledResetTimer}
         onClick={resetTimer}
         className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
       >
