@@ -79,7 +79,7 @@ const NavBarPage = () => {
         ref={menuRef}
         onMouseMove={throttledResetTimer}
         onClick={resetTimer}
-        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
+        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-16 lg:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
       >
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
