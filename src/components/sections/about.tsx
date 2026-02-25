@@ -36,7 +36,8 @@ export default function AboutSection() {
                     Developer
                   </p>
                   <h3 className="text-xl font-bold text-foreground">
-                    Okelola Lekan
+                    Okelola Lekan{" "}
+                    <span className="text-emerald-500 md:hidden">👋</span>
                   </h3>
                 </div>
               </div>
