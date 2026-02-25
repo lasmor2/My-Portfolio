@@ -80,4 +80,15 @@ export const skillCategories = [
   },
 ];
 
+export const supportingEcosystem = [
+  { name: "Babel", url: "https://babeljs.io/" },
+  { name: "Webpack", url: "https://webpack.js.org/" },
+  { name: "PostgreSQL", url: "https://www.postgresql.org/" },
+  { name: "Prisma", url: "https://www.prisma.io/" },
+  { name: "Redis", url: "https://redis.io/" },
+  { name: "Figma", url: "https://www.figma.com/" },
+  { name: "Linux", url: "https://www.linux.org/" },
+  { name: "Nginx", url: "https://nginx.org/" },
+];
+
 import { Sparkles as SparklesIcon } from "lucide-react";

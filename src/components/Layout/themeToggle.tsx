@@ -43,7 +43,7 @@ const ThemeToggle = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="p-4.5 m-2 rounded-full border border-(--toggle-border) bg-(--toggle-bg) text-(--toggle-icon) transition-all hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--toggle-border)"
+      className="p-3 md:p-[1.125rem] m-0.5 md:m-2 rounded-full border border-(--toggle-border) bg-(--toggle-bg) text-(--toggle-icon) transition-all hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--toggle-border)"
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
       title={`Switch to ${isDark ? "light" : "dark"} theme`}
     >

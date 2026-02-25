@@ -1,4 +1,4 @@
-import { skillCategories } from "@/data/skills";
+import { skillCategories, supportingEcosystem } from "@/data/skills";
 import { BadgeCheck, Sparkles } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 
@@ -115,22 +115,16 @@ export default function SkillsSection() {
           <p className="w-full text-center text-xs text-muted-foreground uppercase tracking-widest font-bold mb-4">
             Supporting Ecosystem
           </p>
-          {[
-            "Babel",
-            "Webpack",
-            "PostgreSQL",
-            "Prisma",
-            "Redis",
-            "Figma",
-            "Linux",
-            "Nginx",
-          ].map((tool) => (
-            <span
-              key={tool}
-              className="px-4 py-2 rounded-xl border border-border bg-secondary/50 text-xs font-semibold text-muted-foreground hover:text-emerald-500 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all cursor-default"
+          {supportingEcosystem.map((tool) => (
+            <a
+              key={tool.name}
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl border border-border bg-secondary/50 text-xs font-semibold text-muted-foreground hover:text-emerald-500 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all cursor-pointer inline-flex items-center gap-2"
             >
-              {tool}
-            </span>
+              {tool.name}
+            </a>
           ))}
         </ScrollReveal>
       </div>

@@ -9,6 +9,7 @@ const NavBarPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lastMoveRef = useRef(0);
 
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
@@ -20,6 +21,14 @@ const NavBarPage = () => {
       }, 5000); // 5 seconds of inactivity
     }
   }, [isOpen, closeMenu]);
+
+  const throttledResetTimer = useCallback(() => {
+    const now = Date.now();
+    if (now - lastMoveRef.current > 250) {
+      lastMoveRef.current = now;
+      resetTimer();
+    }
+  }, [resetTimer]);
 
   useEffect(() => {
     resetTimer();
@@ -49,7 +58,7 @@ const NavBarPage = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-start items-center py-4 px-6 md:px-10 font-sans">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-start items-center py-4 px-6 font-sans">
       <div className="flex items-center mr-6 md:mr-16">
         {/* Logo */}
         <Link
@@ -68,9 +77,9 @@ const NavBarPage = () => {
       {/* Desktop & Mobile Container */}
       <div
         ref={menuRef}
-        onMouseMove={resetTimer}
+        onMouseMove={throttledResetTimer}
         onClick={resetTimer}
-        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
+        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-16 lg:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
       >
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
