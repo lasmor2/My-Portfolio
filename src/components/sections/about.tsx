@@ -11,7 +11,7 @@ export default function AboutSection() {
     <section className="relative w-full py-10 md:py-5 px-4 md:px-0 overflow-visible">
       {/* Background glow accents */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-foreground/5 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-foreground/[3%] rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-foreground/3 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* ── Profile Image Column (LG: 5 cols) ── */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-1">
@@ -21,7 +21,7 @@ export default function AboutSection() {
               <div className="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-foreground/20 via-foreground/5 to-transparent blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Main Image Card */}
-              <div className="relative w-[17.5rem] md:w-[22.5rem] h-80 md:h-[30rem] rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-secondary">
+              <div className="relative w-70 md:w-90 h-80 md:h-120 rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-secondary">
                 <Image
                   src={aboutData.image}
                   alt="Profile picture"
@@ -29,7 +29,7 @@ export default function AboutSection() {
                   className="object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent" />
                 {/* Name Tag / Badge */}
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-background/60 backdrop-blur-md border border-border">
                   <p className="text-xs font-semibold uppercase tracking-widest text-emerald-500 mb-1">
