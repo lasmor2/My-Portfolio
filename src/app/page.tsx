@@ -1,5 +1,6 @@
 import NavBarPage from "@/components/Layout/navBar";
 import Hero from "@/components/sections/Hero";
+import Footer from "@/components/Layout/footer";
 
 const HomePage = () => {
   return (
@@ -8,13 +9,7 @@ const HomePage = () => {
       <main className="flex-1">
         <Hero />
       </main>
-      <footer className="py-6 text-center text-xs text-gray-600 border-t border-white/5">
-        <p>
-          © {new Date().getFullYear()}{" "}
-          <span className="text-gray-400 font-medium">Lasmor</span>. All rights
-          reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

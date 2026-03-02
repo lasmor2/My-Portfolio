@@ -1,6 +1,7 @@
 export const techStack = [
   "Next.js",
   "React",
+  "React Native",
   "Express",
   "NestJS",
   "AWS",

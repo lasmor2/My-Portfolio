@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,25 +18,28 @@ export const metadata: Metadata = {
   description: "Created my portFolio with Next.js",
 };
 
+const themeScript = `
+  (function () {
+    try {
+      var key = "portfolio-theme";
+      var saved = localStorage.getItem(key);
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch (error) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const themeScript = `
-    (function () {
-      try {
-        var key = "portfolio-theme";
-        var saved = localStorage.getItem(key);
-        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-        var theme = saved === "light" || saved === "dark"
-          ? saved
-          : (prefersLight ? "light" : "dark");
-        document.documentElement.dataset.theme = theme;
-      } catch (error) {}
-    })();
-  `;
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -43,6 +47,7 @@ export default function RootLayout({
       >
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
+        <Analytics />
       </body>
     </html>
   );

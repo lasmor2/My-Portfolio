@@ -19,8 +19,8 @@ export function SocialLinks({
       prefix: "Follow on",
       icon: Github,
       ariaLabel: "GitHub Profile",
-      color: "hover:bg-white/10 hover:text-white",
-      glow: "group-hover:shadow-white/20",
+      color: "hover:bg-foreground/5 hover:text-foreground",
+      glow: "group-hover:shadow-foreground/5",
     },
     {
       href: "https://www.linkedin.com/in/lekan-okelola-17b828285/",
@@ -28,8 +28,8 @@ export function SocialLinks({
       prefix: "Connect on",
       icon: Linkedin,
       ariaLabel: "LinkedIn Profile",
-      color: "hover:bg-blue-500/10 hover:text-blue-400",
-      glow: "group-hover:shadow-blue-500/20",
+      color: "hover:bg-blue-500/10 hover:text-blue-500",
+      glow: "group-hover:shadow-blue-500/10",
     },
     ...(whatsappNumber
       ? [
@@ -56,7 +56,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={ariaLabel}
-            className="p-2 rounded-full border border-white/10 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-all hover:scale-110"
+            className="p-2 rounded-full border border-border bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all hover:scale-110"
           >
             <Icon size={16} />
           </Link>
@@ -77,10 +77,10 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={ariaLabel}
-            className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-white/10 bg-white/5 text-gray-400 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-lg ${color} ${glow} backdrop-blur-md overflow-hidden`}
+            className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-border bg-secondary/50 text-muted-foreground transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-lg ${color} ${glow} backdrop-blur-md overflow-hidden`}
           >
             {/* Subtle background glow effect on hover */}
-            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <Icon
               size={18}
@@ -91,7 +91,7 @@ export function SocialLinks({
               <span className="text-[10px] uppercase font-bold tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
                 {prefix}
               </span>
-              <span className="text-sm font-bold text-white tracking-tight">
+              <span className="text-sm font-bold text-foreground tracking-tight">
                 {label}
               </span>
             </div>

@@ -13,10 +13,7 @@ import {
   Palette,
   Zap,
   Variable,
-  Blocks,
-  FileCode,
-  Layout,
-  HardDrive,
+  Smartphone,
 } from "lucide-react";
 
 export const skillCategories = [
@@ -41,6 +38,12 @@ export const skillCategories = [
       },
       { name: "GSAP", level: "Beginner", percentage: 40, icon: SparklesIcon },
       { name: "Three.js", level: "Beginner", percentage: 35, icon: Layers },
+      {
+        name: "React Native",
+        level: "Beginner",
+        percentage: 50,
+        icon: Smartphone,
+      },
     ],
   },
   {
@@ -75,6 +78,17 @@ export const skillCategories = [
       { name: "GitHub", level: "Intermediate", percentage: 85, icon: Github },
     ],
   },
+];
+
+export const supportingEcosystem = [
+  { name: "Babel", url: "https://babeljs.io/" },
+  { name: "Webpack", url: "https://webpack.js.org/" },
+  { name: "PostgreSQL", url: "https://www.postgresql.org/" },
+  { name: "Prisma", url: "https://www.prisma.io/" },
+  { name: "Redis", url: "https://redis.io/" },
+  { name: "Figma", url: "https://www.figma.com/" },
+  { name: "Linux", url: "https://www.linux.org/" },
+  { name: "Nginx", url: "https://nginx.org/" },
 ];
 
 import { Sparkles as SparklesIcon } from "lucide-react";
