@@ -141,27 +141,29 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all group"
-              >
-                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform">
-                  <MessageCircle size={20} />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs uppercase font-bold tracking-widest text-gray-500 mb-1">
-                      WhatsApp
-                    </p>
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">
-                      Quick Response
-                    </span>
+              {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER && (
+                <a
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all group"
+                >
+                  <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform">
+                    <MessageCircle size={20} />
                   </div>
-                  <p className="text-white font-medium">Chat with me</p>
-                </div>
-              </a>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs uppercase font-bold tracking-widest text-gray-500 mb-1">
+                        WhatsApp
+                      </p>
+                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">
+                        Quick Response
+                      </span>
+                    </div>
+                    <p className="text-white font-medium">Chat with me</p>
+                  </div>
+                </a>
+              )}
 
               <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm">
                 <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
@@ -271,7 +273,7 @@ export default function ContactSection() {
                     `}
                   >
                     {loading ? (
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                     ) : success ? (
                       <>
                         <CheckCircle2 size={20} />

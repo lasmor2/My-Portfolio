@@ -10,6 +10,8 @@ export function SocialLinks({
   className = "",
   variant = "premium",
 }: SocialLinksProps) {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+
   const links = [
     {
       href: "https://github.com/lasmor2",
@@ -29,15 +31,19 @@ export function SocialLinks({
       color: "hover:bg-blue-500/10 hover:text-blue-400",
       glow: "group-hover:shadow-blue-500/20",
     },
-    {
-      href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`,
-      label: "WhatsApp",
-      prefix: "Chat with me on",
-      icon: MessageCircle,
-      ariaLabel: "WhatsApp Contact",
-      color: "hover:bg-emerald-500/10 hover:text-emerald-400",
-      glow: "group-hover:shadow-emerald-500/20",
-    },
+    ...(whatsappNumber
+      ? [
+          {
+            href: `https://wa.me/${whatsappNumber}`,
+            label: "WhatsApp",
+            prefix: "Chat with me on",
+            icon: MessageCircle,
+            ariaLabel: "WhatsApp Contact",
+            color: "hover:bg-emerald-500/10 hover:text-emerald-400",
+            glow: "group-hover:shadow-emerald-500/20",
+          },
+        ]
+      : []),
   ];
 
   if (variant === "simple") {
@@ -74,7 +80,7 @@ export function SocialLinks({
             className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-white/10 bg-white/5 text-gray-400 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-lg ${color} ${glow} backdrop-blur-md overflow-hidden`}
           >
             {/* Subtle background glow effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <Icon
               size={18}

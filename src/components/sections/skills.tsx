@@ -19,7 +19,7 @@ export default function SkillsSection() {
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
             Technical{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-white to-gray-500">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-400 via-white to-gray-500">
               Skills
             </span>
           </h2>
