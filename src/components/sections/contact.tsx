@@ -112,7 +112,8 @@ export default function ContactSection() {
 
             {/* Quick Contact Info */}
             <div className="space-y-6">
-              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm">
+              <div className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm">
+                {" "}
                 <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
                   <Mail size={20} />
                 </div>
@@ -141,7 +142,7 @@ export default function ContactSection() {
               </div>
 
               <a
-                href="https://wa.me/2349165975467"
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all group"

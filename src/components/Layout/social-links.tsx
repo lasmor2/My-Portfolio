@@ -30,7 +30,7 @@ export function SocialLinks({
       glow: "group-hover:shadow-blue-500/20",
     },
     {
-      href: "https://wa.me/2349165975476",
+      href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`,
       label: "WhatsApp",
       prefix: "Chat with me on",
       icon: MessageCircle,
