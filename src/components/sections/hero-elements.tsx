@@ -54,9 +54,15 @@ export const TechStackPills = ({
   <Reveal direction="up" delay={0.6} duration={1}>
     <div className={containerClassName}>
       {techStack.map((tech) => (
-        <span key={tech} className={pillClassName}>
-          {tech}
-        </span>
+        <a
+          key={tech.name}
+          href={tech.docs}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={pillClassName}
+        >
+          {tech.name}
+        </a>
       ))}
     </div>
   </Reveal>
