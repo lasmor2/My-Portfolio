@@ -13,6 +13,6 @@ export const heroBadge = {
 };
 
 export const heroStats = [
-  { value: "1+", label: "Years\nExperience" },
+  { value: "2+", label: "Years\nExperience" },
   { value: "10+", label: "Projects\nBuilt" },
 ];
