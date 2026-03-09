@@ -13,6 +13,7 @@ export const aboutData = {
   interests: [
     "Clean Code",
     "Cloud Architecture",
+    "Mobile Development",
     "System Design",
     "Automation",
   ],
