@@ -25,6 +25,8 @@ jobs:
         run: npm test || true
 
       - name: Build Next.js
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: npm run build
 
   deploy-vercel:
