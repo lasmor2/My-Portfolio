@@ -64,6 +64,8 @@ export const skillCategories = [
         percentage: 70,
         icon: Variable,
       },
+      { name: "Django", level: "Beginner", percentage: 35, icon: Code2 },
+      { name: "FastAPI", level: "Beginner", percentage: 40, icon: Code2 },
     ],
   },
   {
