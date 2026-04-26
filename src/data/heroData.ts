@@ -9,6 +9,9 @@ export const techStack = [
   { name: "NestJS", docs: "https://docs.nestjs.com" },
   { name: "AWS", docs: "https://docs.aws.amazon.com" },
   { name: "Docker", docs: "https://docs.docker.com" },
+  { name: "Kubernetes", docs: "https://kubernetes.io/docs/home/" },
+  { name: "Django", docs: "https://docs.djangoproject.com/en/stable/" },
+  { name: "FastAPI", docs: "https://fastapi.tiangolo.com/" },
 ];
 
 export const heroBadge = {
