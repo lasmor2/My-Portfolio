@@ -90,7 +90,7 @@ export default function SkillsSection() {
                             className="h-full bg-linear-to-r from-emerald-500 to-emerald-400 rounded-full relative"
                             style={{ width: `${skill.percentage}%` }}
                           >
-                            <div className="absolute inset-0 bg-white/20 animate-shimmer -skew-x-12 translate-x-[-100%] motion-reduce:animate-none" />
+                            <div className="absolute inset-0 bg-white/20 -skew-x-12 translate-x-[-100%] motion-reduce:animate-none" />
                           </div>
                         </div>
                       </div>
