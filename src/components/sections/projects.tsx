@@ -1,155 +1,132 @@
 "use client";
+
 import { Project, projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, FolderCode } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, ExternalLink, Github, GitBranch, Server } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
+
+function ArchitectureFlow({ steps }: { steps: string[] }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2" aria-label="Architecture flow">
+      {steps.map((step, index) => (
+        <span key={`${step}-${index}`} className="flex items-center gap-2">
+          <span className="rounded-md border border-border bg-background/70 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            {step}
+          </span>
+          {index < steps.length - 1 && (
+            <ArrowRight className="h-3 w-3 text-emerald-500" aria-hidden="true" />
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="group flex h-full flex-col rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5">
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <span className="rounded-md border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
+          {project.category}
+        </span>
+        <span className="rounded-md border border-border bg-secondary/50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+          {project.role}
+        </span>
+      </div>
+
+      <div className="space-y-3">
+        <h3 className="text-2xl font-bold tracking-normal text-foreground transition-colors group-hover:text-emerald-600 dark:group-hover:text-emerald-300">
+          {project.title}
+        </h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+      </div>
+
+      <div className="mt-5 border-y border-border py-4">
+        <ArchitectureFlow steps={project.architecture} />
+      </div>
+
+      <ul className="mt-5 space-y-3">
+        {project.highlights.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+            <GitBranch className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-5 rounded-md border border-border bg-secondary/40 px-3 py-2 text-xs font-medium leading-relaxed text-foreground">
+        {project.result}
+      </p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {project.tech.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-md border border-border/70 bg-background/60 px-2 py-1 text-[11px] font-medium text-muted-foreground"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+        {project.live && (
+          <Button asChild size="sm" className="rounded-md bg-emerald-600 text-white hover:bg-emerald-700">
+            <a href={project.live} target="_blank" rel="noopener noreferrer">
+              <ExternalLink size={14} />
+              Live Demo
+            </a>
+          </Button>
+        )}
+        <Button
+          asChild
+          variant="outline"
+          size="sm"
+          className="rounded-md border-border bg-secondary/40 text-foreground hover:bg-secondary"
+        >
+          <a href={project.github} target="_blank" rel="noopener noreferrer">
+            <Github size={14} />
+            Codebase
+          </a>
+        </Button>
+      </div>
+    </article>
+  );
+}
 
 export default function ProjectsSection() {
   return (
-    <section className="relative w-full py-10 md:py-5 px-4 md:px-0 overflow-visible">
-      {/* Background glow accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500/3 rounded-full blur-3xl pointer-events-none -z-10" />
-
-      <div className="max-w-6xl mx-auto space-y-16">
-        {/* Header */}
+    <section className="relative w-full px-4 py-16 md:px-6" id="projects">
+      <div className="mx-auto max-w-6xl space-y-10">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="flex flex-col items-center text-center space-y-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-muted-foreground w-fit">
-              <FolderCode size={14} className="text-emerald-500" />
-              <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
-                My Portfolio
-              </span>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl space-y-3">
+              <div className="flex w-fit items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1 text-muted-foreground">
+                <Server size={14} className="text-emerald-500" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
+                  Featured Engineering Work
+                </span>
+              </div>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-normal text-foreground md:text-5xl">
+                Projects that show backend depth, architecture, and delivery.
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-              Featured{" "}
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
-                Projects
-              </span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-              A selection of my most recent work, ranging from complex
-              enterprise APIs to creative frontend experiences.
+            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Each project is framed around role, system shape, engineering decisions, and the practical result instead of screenshots alone.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Projects Grid */}
         <ScrollReveal
           direction="up"
-          delay={0.3}
-          stagger={0.15}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          delay={0.2}
+          stagger={0.08}
+          className="grid grid-cols-1 gap-5 lg:grid-cols-2"
         >
-          {projects.map((project: Project, idx: number) => (
-            <div
-              key={project.title}
-              className="group relative flex flex-col h-full rounded-[2.5rem] border border-border bg-secondary/30 backdrop-blur-xl overflow-hidden hover:bg-secondary/50 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-500 active:scale-[0.98]"
-            >
-              {/* Project Image Container */}
-              {project.image && (
-                <div className="relative aspect-video overflow-hidden">
-                  {/* Fallback pattern if image is missing/broken */}
-                  <div className="absolute inset-0 bg-linear-to-br from-emerald-500/20 to-secondary flex items-center justify-center -z-10">
-                    <FolderCode className="w-12 h-12 text-muted-foreground/20" />
-                  </div>
-
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.opacity = "0";
-                    }}
-                  />
-
-                  {/* Overlay Glow */}
-                  <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent opacity-60" />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-background/80 border border-border text-foreground backdrop-blur-md">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {/* Category Badge for imageless projects */}
-              {!project.image && (
-                <div className="px-8 pt-8">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary border border-border text-foreground">
-                    {project.category}
-                  </span>
-                </div>
-              )}
-
-              {/* Content Container */}
-              <div className="flex flex-col flex-1 p-8 space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-emerald-500 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tech.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-border/40 bg-background/40 text-muted-foreground/80"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Actions */}
-                <div className="flex items-center gap-4 pt-6 mt-auto">
-                  {project.live && (
-                    <Button
-                      asChild
-                      size="sm"
-                      className="rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
-                    >
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        <ExternalLink size={14} />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                  <Button
-                    asChild
-                    variant="ghost"
-                    size="sm"
-                    className="rounded-full border border-border bg-secondary/30 text-foreground hover:bg-secondary transition-all active:scale-95"
-                  >
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                    >
-                      <Github size={14} />
-                      Codebase
-                    </a>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Decorative border highlight */}
-              <div className="absolute inset-0 rounded-[2.5rem] border border-emerald-500/0 group-hover:border-emerald-500/20 pointer-events-none transition-colors duration-500" />
-            </div>
+          {projects.slice(0, 5).map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </ScrollReveal>
       </div>

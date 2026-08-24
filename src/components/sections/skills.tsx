@@ -1,118 +1,98 @@
 import { skillCategories, supportingEcosystem } from "@/data/skills";
-import { BadgeCheck, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 
 export default function SkillsSection() {
   return (
-    <section className="relative w-full py-10 md:py-5 px-4 md:px-0">
-      {/* Background Orbs */}
-      <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -z-10 w-72 h-72 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto space-y-16">
-        {/* Header */}
+    <section className="relative w-full px-4 py-16 md:px-6" id="skills">
+      <div className="mx-auto max-w-6xl space-y-10">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400">
+          <div className="max-w-3xl space-y-3 text-left">
+            <div className="inline-flex items-center gap-2 rounded-md border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-emerald-700 dark:text-emerald-300">
               <Sparkles size={14} />
-              <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
-                Expertise
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
+                Technical Skills
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-              Technical{" "}
-              <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
-                Skills
-              </span>
+            <h2 className="text-3xl font-extrabold leading-tight tracking-normal text-foreground md:text-5xl">
+              A stack built around APIs, data, and production delivery.
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-              A comprehensive overview of the technologies and tools I use to
-              build robust, scalable, and modern digital applications.
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              The homepage now foregrounds backend keywords while still showing the full-stack and mobile range needed for product teams.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Categories Grid */}
         <ScrollReveal
           direction="up"
-          delay={0.3}
-          stagger={0.2}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          delay={0.2}
+          stagger={0.12}
+          className="grid grid-cols-1 gap-5 lg:grid-cols-3"
         >
           {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
-              <div
+              <article
                 key={category.id}
-                className="group relative p-8 rounded-[2.5rem] border border-border bg-secondary/30 backdrop-blur-xl hover:bg-secondary/50 transition-all duration-500"
+                className="rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/35 hover:shadow-xl hover:shadow-emerald-500/5"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                    <Icon size={24} />
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="rounded-md border border-emerald-500/20 bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-300">
+                    <Icon size={22} />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">
                     {category.title}
                   </h3>
                 </div>
 
-                {/* Skills List */}
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {category.skills.map((skill) => {
                     const SkillIcon = skill.icon;
                     return (
                       <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between items-center px-1">
+                        <div className="flex items-center justify-between gap-3">
                           <div className="flex items-center gap-2.5">
-                            <div className="p-1 rounded-md bg-secondary text-emerald-500/80 group-hover:text-emerald-500 transition-colors">
+                            <span className="rounded-md bg-secondary p-1 text-emerald-500">
                               <SkillIcon size={14} />
-                            </div>
-                            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                            </span>
+                            <span className="text-sm font-medium text-foreground">
                               {skill.name}
                             </span>
                           </div>
-                          <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/60">
+                          <span className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
                             {skill.level}
                           </span>
                         </div>
 
-                        {/* Progress Bar Container */}
                         <div
-                          className="h-1.5 w-full bg-secondary rounded-full overflow-hidden"
+                          className="h-1.5 w-full overflow-hidden rounded-full bg-secondary"
                           role="progressbar"
                           aria-valuenow={skill.percentage}
                           aria-valuemin={0}
                           aria-valuemax={100}
                           aria-label={`${skill.name} proficiency`}
                         >
-                          {/* Shimmer effect inside progress bar */}
                           <div
-                            className="h-full bg-linear-to-r from-emerald-500 to-emerald-400 rounded-full relative"
+                            className="h-full rounded-full bg-linear-to-r from-emerald-600 to-cyan-500"
                             style={{ width: `${skill.percentage}%` }}
-                          >
-                            <div className="absolute inset-0 bg-white/20 -skew-x-12 translate-x-[-100%] motion-reduce:animate-none" />
-                          </div>
+                          />
                         </div>
                       </div>
                     );
                   })}
                 </div>
-
-                {/* Hover Glow */}
-                <div className="absolute -inset-px rounded-[2.5rem] bg-linear-to-tr from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              </div>
+              </article>
             );
           })}
         </ScrollReveal>
 
-        {/* Floating Tooltips or Tags for secondary mentions */}
         <ScrollReveal
           direction="up"
-          delay={0.5}
-          stagger={0.05}
-          className="pt-12 border-t border-border flex flex-wrap justify-center gap-3"
+          delay={0.35}
+          stagger={0.04}
+          className="flex flex-wrap gap-2 border-t border-border pt-8"
         >
-          <p className="w-full text-center text-xs text-muted-foreground uppercase tracking-widest font-bold mb-4">
+          <p className="w-full text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Supporting Ecosystem
           </p>
           {supportingEcosystem.map((tool) => (
@@ -121,7 +101,7 @@ export default function SkillsSection() {
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl border border-border bg-secondary/50 text-xs font-semibold text-muted-foreground hover:text-emerald-500 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all cursor-pointer inline-flex items-center gap-2"
+              className="inline-flex items-center rounded-md border border-border bg-secondary/40 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-foreground"
             >
               {tool.name}
             </a>

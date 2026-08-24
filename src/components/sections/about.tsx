@@ -8,73 +8,56 @@ import ScrollReveal from "../animations/ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full py-10 md:py-5 px-4 md:px-0 overflow-visible">
-      {/* Background glow accents */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-foreground/5 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-foreground/3 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* ── Profile Image Column (LG: 5 cols) ── */}
-        <div className="lg:col-span-5 flex justify-center order-1 lg:order-1">
-          <ScrollReveal direction="left" delay={0.5}>
-            <div className="relative group">
-              {/* Outer Glow Ring */}
-              <div className="absolute -inset-1 rounded-[2.5rem] bg-linear-to-tr from-foreground/20 via-foreground/5 to-transparent blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Main Image Card */}
-              <div className="relative w-70 md:w-90 h-80 md:h-120 rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-secondary">
+    <section className="relative w-full px-4 py-16 md:px-6" id="about">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="flex justify-center lg:col-span-5">
+          <ScrollReveal direction="left" delay={0.2}>
+            <div className="w-full max-w-sm">
+              <div className="relative aspect-4/5 overflow-hidden rounded-lg border border-border bg-secondary shadow-2xl">
                 <Image
                   src={aboutData.image}
-                  alt="Profile picture"
+                  alt="Lekan Okelola"
                   fill
-                  className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
                 />
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent" />
-                {/* Name Tag / Badge */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-background/60 backdrop-blur-md border border-border">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-500 mb-1">
-                    Developer
+                <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/75 p-4 backdrop-blur-md">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-300">
+                    {aboutData.subtitle}
                   </p>
-                  <h3 className="text-xl font-bold text-foreground">
-                    Okelola Lekan{" "}
-                    <span className="text-emerald-500 md:hidden">👋</span>
+                  <h3 className="mt-1 text-xl font-bold text-foreground">
+                    Lekan Okelola
                   </h3>
                 </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
-        {/* ── Content Column (LG: 7 cols) ── */}
-        <div className="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-2">
-          <ScrollReveal direction="right" delay={0.3}>
-            {/* Header */}
+
+        <div className="flex flex-col gap-7 lg:col-span-7">
+          <ScrollReveal direction="right" delay={0.15}>
             <div className="flex flex-col gap-3 text-center lg:text-left">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-muted-foreground w-fit mx-auto lg:mx-0">
+              <div className="mx-auto flex w-fit items-center gap-2 rounded-md border border-border bg-secondary/50 px-3 py-1 text-muted-foreground lg:mx-0">
                 <User size={14} className="text-emerald-500" />
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em]">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
                   {aboutData.title}
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-                Crafting Digital <br />
-                <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-500 via-foreground to-foreground/50">
-                  Experiences
-                </span>
+              <h2 className="text-3xl font-extrabold leading-tight tracking-normal text-foreground md:text-5xl">
+                Backend-first engineering with full-stack product range.
               </h2>
             </div>
           </ScrollReveal>
 
-          {/* Description */}
-          <ScrollReveal direction="up" delay={0.4}>
+          <ScrollReveal direction="up" delay={0.25}>
             <div className="space-y-4 text-center lg:text-left">
-              {aboutData.description.map((para, idx) => (
+              {aboutData.description.map((para) => (
                 <p
-                  key={idx}
-                  className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl"
+                  key={para}
+                  className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
                 >
-                  {para.split(/(\*\*.*?\*\*)/).map((part, i) =>
+                  {para.split(/(\*\*.*?\*\*)/).map((part, index) =>
                     part.startsWith("**") && part.endsWith("**") ? (
-                      <strong key={i} className="text-foreground font-semibold">
+                      <strong key={`${part}-${index}`} className="font-semibold text-foreground">
                         {part.slice(2, -2)}
                       </strong>
                     ) : (
@@ -86,18 +69,15 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
 
-          {/* Stats Grid */}
-          <ScrollReveal direction="up" delay={0.5} stagger={0.1}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
+          <ScrollReveal direction="up" delay={0.35} stagger={0.06}>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
               {aboutData.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-4 rounded-2xl bg-secondary/50 border border-border backdrop-blur-sm text-center lg:text-left hover:border-emerald-500/30 transition-colors"
+                  className="rounded-lg border border-border bg-background/80 p-4 text-center shadow-sm lg:text-left"
                 >
-                  <p className="text-2xl font-bold text-foreground mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">
+                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
                     {stat.label}
                   </p>
                 </div>
@@ -105,51 +85,39 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
 
-          {/* Interests / Tech Pills */}
-          <ScrollReveal direction="up" delay={0.6} stagger={0.05}>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+          <ScrollReveal direction="up" delay={0.45} stagger={0.04}>
+            <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
               {aboutData.interests.map((interest) => (
-                <div
+                <span
                   key={interest}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 border border-border text-xs font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+                  className="rounded-md border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-muted-foreground"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   {interest}
-                </div>
+                </span>
               ))}
             </div>
           </ScrollReveal>
 
-          {/* Actions */}
-          <ScrollReveal direction="up" delay={0.7}>
-            <div className="flex flex-col gap-6 pt-8 border-t border-border">
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="group rounded-full bg-foreground text-background hover:bg-foreground/90 shadow-lg shadow-foreground/10 transition-all hover:scale-105 active:scale-95"
-                >
+          <ScrollReveal direction="up" delay={0.55}>
+            <div className="flex flex-col gap-5 border-t border-border pt-7">
+              <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+                <Button asChild size="lg" className="group rounded-md bg-foreground text-background hover:bg-foreground/90">
                   <Link href="/projects">
                     View Projects
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
 
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-border bg-secondary/50 text-foreground hover:bg-secondary backdrop-blur-sm transition-all hover:scale-105 active:scale-95"
-                >
-                  <Link href="/contact" className="flex items-center gap-2">
-                    <Terminal className="w-4 h-4" />
-                    Contact me
+                <Button asChild size="lg" variant="outline" className="rounded-md border-border bg-secondary/50 text-foreground hover:bg-secondary">
+                  <Link href="/contact">
+                    <Terminal className="h-4 w-4" />
+                    Contact Me
                   </Link>
                 </Button>
               </div>
 
-              <div className="mt-12 flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 text-center">
-                <SocialLinks />
+              <div className="flex justify-center lg:justify-start">
+                <SocialLinks variant="simple" />
               </div>
             </div>
           </ScrollReveal>
