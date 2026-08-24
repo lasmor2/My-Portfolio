@@ -4,13 +4,11 @@ import Footer from "@/components/Layout/footer";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-transparent">
+    <div className="flex min-h-dvh flex-col bg-background">
       <NavBarPage />
 
-      <main className="flex-1 pt-24 md:pt-32 pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <AboutSection />
-        </div>
+      <main className="grow pt-24 md:pt-28">
+        <AboutSection />
       </main>
 
       <Footer />

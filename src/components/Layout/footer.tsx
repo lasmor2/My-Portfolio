@@ -2,11 +2,11 @@
 
 const Footer = () => {
   return (
-    <footer className="py-6 text-center text-xs text-muted-foreground border-t border-border mt-auto">
+    <footer className="shrink-0 border-t border-border px-4 py-4 text-center text-xs text-muted-foreground">
       <p>
         © {new Date().getFullYear()}{" "}
-        <span className="text-foreground font-medium">Lekan Okelola</span>. All rights
-        reserved.
+        <span className="font-medium text-foreground">Lekan Okelola</span>. All
+        rights reserved.
       </p>
     </footer>
   );
