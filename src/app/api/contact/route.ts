@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const safeMessage = escapeHtml(message);
 
     // This sends the notification to your email
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       // Note: Once you verify a domain, use your own email here
       to: ["okelolalekan2019@gmail.com"],

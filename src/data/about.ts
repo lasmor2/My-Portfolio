@@ -1,20 +1,22 @@
 export const aboutData = {
   title: "About Me",
-  subtitle: "Full-Stack Developer & DevOps Enthusiast",
+  subtitle: "Backend & Full-Stack Engineer",
   description: [
-    "I am a **full-stack developer** who designs, builds, deploys, and scales production-ready applications. I focus on clean architecture, modern technologies, and DevOps best practices.",
-    "My tech stack includes **Next.js, React, React Native, Express, NestJS, Django, FastAPI, AWS, Jenkins, CI/CD and Docker**, and I love creating applications that are both performant and maintainable.",
+    "I am a **Backend & Full-Stack Engineer** focused on scalable APIs, backend systems, cloud-ready products, and production web/mobile applications.",
+    "My core stack includes **Node.js, NestJS, TypeScript, FastAPI, PostgreSQL, React, Next.js, React Native, AWS, Docker, and CI/CD**. I care about clean architecture, maintainable delivery, and systems that are practical to run after launch.",
   ],
   image: "/images/my-pix.png",
   stats: [
-    { label: "Projects Completed", value: "7+" },
-    { label: "Tech Stack Tools", value: "10+" },
+    { label: "Projects Built", value: "10+" },
+    { label: "Years Experience", value: "3+" },
+    { label: "Backend Focus", value: "API" },
+    { label: "Availability", value: "Remote" },
   ],
   interests: [
-    "Clean Code",
-    "Cloud Architecture",
+    "API Design",
+    "Backend Architecture",
+    "PostgreSQL",
+    "Cloud Deployments",
     "Mobile Development",
-    "System Design",
-    "Automation",
   ],
 };

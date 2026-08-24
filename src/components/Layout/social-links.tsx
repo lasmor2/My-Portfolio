@@ -20,7 +20,6 @@ export function SocialLinks({
       icon: Github,
       ariaLabel: "GitHub Profile",
       color: "hover:bg-foreground/5 hover:text-foreground",
-      glow: "group-hover:shadow-foreground/5",
     },
     {
       href: "https://www.linkedin.com/in/lekan-okelola-17b828285/",
@@ -29,18 +28,16 @@ export function SocialLinks({
       icon: Linkedin,
       ariaLabel: "LinkedIn Profile",
       color: "hover:bg-blue-500/10 hover:text-blue-500",
-      glow: "group-hover:shadow-blue-500/10",
     },
     ...(whatsappNumber
       ? [
           {
             href: `https://wa.me/${whatsappNumber}`,
             label: "WhatsApp",
-            prefix: "Chat with me on",
+            prefix: "Chat on",
             icon: MessageCircle,
             ariaLabel: "WhatsApp Contact",
-            color: "hover:bg-emerald-500/10 hover:text-emerald-400",
-            glow: "group-hover:shadow-emerald-500/20",
+            color: "hover:bg-emerald-500/10 hover:text-emerald-500",
           },
         ]
       : []),
@@ -56,7 +53,8 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={ariaLabel}
-            className="p-2 rounded-full border border-border bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all hover:scale-110"
+            title={label}
+            className="effect-button rounded-md border border-border bg-secondary/50 p-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
           >
             <Icon size={16} />
           </Link>
@@ -66,38 +64,25 @@ export function SocialLinks({
   }
 
   return (
-    <div
-      className={`flex flex-col md:flex-row items-center gap-4 ${className}`}
-    >
-      {links.map(
-        ({ href, label, prefix, icon: Icon, ariaLabel, color, glow }) => (
-          <Link
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={ariaLabel}
-            className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-border bg-secondary/50 text-muted-foreground transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-lg ${color} ${glow} backdrop-blur-md overflow-hidden`}
-          >
-            {/* Subtle background glow effect on hover */}
-            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            <Icon
-              size={18}
-              className="relative z-10 shrink-0 group-hover:scale-110 transition-transform duration-300"
-            />
-
-            <div className="relative z-10 flex flex-col">
-              <span className="text-[10px] uppercase font-bold tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
-                {prefix}
-              </span>
-              <span className="text-sm font-bold text-foreground tracking-tight">
-                {label}
-              </span>
-            </div>
-          </Link>
-        ),
-      )}
+    <div className={`flex flex-col items-center gap-3 md:flex-row ${className}`}>
+      {links.map(({ href, label, prefix, icon: Icon, ariaLabel, color }) => (
+        <Link
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={ariaLabel}
+          className={`effect-button group inline-flex items-center gap-3 rounded-md border border-border bg-secondary/50 px-4 py-3 text-muted-foreground active:translate-y-0 ${color}`}
+        >
+          <Icon size={18} className="shrink-0 transition-transform duration-300 group-hover:scale-110" />
+          <span className="flex flex-col">
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100">
+              {prefix}
+            </span>
+            <span className="text-sm font-bold text-foreground">{label}</span>
+          </span>
+        </Link>
+      ))}
     </div>
   );
 }

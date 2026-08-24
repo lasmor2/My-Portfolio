@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import { navLinks } from "@/data/navBarData";
 import Link from "next/link";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Code2, Menu, X } from "lucide-react";
 import ThemeToggle from "./themeToggle";
 
 const NavBarPage = () => {
@@ -18,7 +19,7 @@ const NavBarPage = () => {
     if (isOpen) {
       timerRef.current = setTimeout(() => {
         closeMenu();
-      }, 5000); // 5 seconds of inactivity
+      }, 5000);
     }
   }, [isOpen, closeMenu]);
 
@@ -37,7 +38,6 @@ const NavBarPage = () => {
     };
   }, [isOpen, resetTimer]);
 
-  // Close menu on click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -53,100 +53,89 @@ const NavBarPage = () => {
     };
   }, [isOpen, closeMenu]);
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-start items-center py-4 px-6 font-sans">
-      <div className="flex items-center mr-6 md:mr-16">
-        {/* Logo */}
+    <header className="fixed left-0 right-0 top-0 z-50 px-4 py-4 font-sans md:px-6">
+      <div className="mx-auto flex max-w-6xl items-center gap-3">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold tracking-tighter text-(--text) transition-all hover:scale-105"
+          className="flex shrink-0 items-center gap-2 text-sm font-bold text-(--text) transition-colors hover:text-emerald-600 dark:hover:text-emerald-300 md:text-base"
         >
-          <div className="bg-(--logo-box) p-1 rounded-lg border border-(--logo-border) shadow-inner">
-            <Sparkles className="w-4 h-4 text-(--sparkle)" strokeWidth={2.5} />
-          </div>
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-(--brand-from) to-(--brand-to)">
-            Lasmor
+          <span className="rounded-md border border-(--logo-border) bg-(--logo-box) p-1.5 shadow-inner">
+            <Code2 className="h-4 w-4 text-emerald-500" strokeWidth={2.5} />
           </span>
+          <span className="hidden sm:inline">Lekan Okelola</span>
+          <span className="sm:hidden">Lekan</span>
         </Link>
-      </div>
 
-      {/* Desktop & Mobile Container */}
-      <div
-        ref={menuRef}
-        onMouseMove={throttledResetTimer}
-        onClick={resetTimer}
-        className="flex items-center justify-between w-full max-w-3xl px-4 md:px-5 py-1.5 md:ml-16 lg:ml-40 bg-(--surface) backdrop-blur-lg border border-(--surface-border) rounded-full shadow-xl relative"
-      >
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.link}
-                  className="relative flex items-center gap-2 text-xs font-medium text-(--nav-link) hover:text-(--nav-link-hover) transition-colors duration-300 group"
-                >
-                  <link.icon className="w-3.5 h-3.5" />
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-(--nav-link-hover) rounded-full transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          type="button"
-          onClick={toggleMenu}
-          className="md:hidden p-1.5 text-(--nav-link) hover:text-(--nav-link-hover) transition-colors"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
+        <div
+          ref={menuRef}
+          onMouseMove={throttledResetTimer}
+          onClick={resetTimer}
+          className="relative ml-auto flex flex-1 items-center justify-between rounded-lg border border-(--surface-border) bg-(--surface) px-3 py-2 shadow-xl backdrop-blur-lg md:max-w-4xl md:px-4"
         >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+          <nav className="hidden md:block" aria-label="Primary navigation">
+            <ul className="flex items-center gap-4 lg:gap-6">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.link}
+                    className="group relative flex items-center gap-1.5 text-xs font-medium text-(--nav-link) transition-colors duration-300 hover:text-(--nav-link-hover)"
+                  >
+                    <link.icon className="h-3.5 w-3.5" />
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-(--nav-link-hover) transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="flex items-center gap-2.5">
-          {/* CTA Button */}
-          <Link
-            href="/contact"
-            className="px-3 md:px-3.5 py-1 text-[11px] md:text-xs font-semibold text-(--cta-text) bg-(--cta-bg) rounded-full hover:bg-(--cta-hover) transition-all hover:scale-105 active:scale-95"
+          <button
+            type="button"
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="effect-button rounded-md p-1.5 text-(--nav-link) hover:text-(--nav-link-hover) md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
-            Contact
-          </Link>
-          <hr className="bg-(--surface-border) w-px h-5 hidden md:block" />
-          <ThemeToggle />
-        </div>
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
 
-        {/* Mobile Dropdown */}
-        {isOpen && (
-          <div
-            id="mobile-menu"
-            className="absolute top-full right-0 mt-3 w-56 p-3 bg-(--surface) backdrop-blur-xl border border-(--surface-border) rounded-2xl md:hidden flex flex-col gap-3 animate-fade-in-down"
-          >
-            <nav>
-              <ul className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.link}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-2.5 px-3 py-1.5 text-sm font-medium text-(--nav-link) hover:text-(--nav-link-hover) transition-colors hover:bg-(--logo-box) rounded-lg"
-                    >
-                      <link.icon className="w-4 h-4" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <div className="ml-auto flex items-center gap-2.5">
+            <Link
+              href="/contact"
+              className="effect-button rounded-md bg-(--cta-bg) px-3 py-1.5 text-[11px] font-semibold text-(--cta-text) hover:bg-(--cta-hover) active:scale-95 md:text-xs"
+            >
+              Hire / Contact
+            </Link>
+            <hr className="hidden h-5 w-px bg-(--surface-border) md:block" />
+            <ThemeToggle />
           </div>
-        )}
+
+          {isOpen && (
+            <div
+              id="mobile-menu"
+              className="absolute right-0 top-full mt-3 flex w-60 flex-col gap-3 rounded-lg border border-(--surface-border) bg-(--surface) p-3 shadow-xl backdrop-blur-xl md:hidden"
+            >
+              <nav aria-label="Mobile navigation">
+                <ul className="flex flex-col gap-2">
+                  {navLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.link}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium text-(--nav-link) transition-colors hover:bg-(--logo-box) hover:text-(--nav-link-hover)"
+                      >
+                        <link.icon className="h-4 w-4" />
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

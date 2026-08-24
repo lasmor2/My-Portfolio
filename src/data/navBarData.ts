@@ -1,4 +1,4 @@
-import { Home, User, LayoutGrid, Wrench } from "lucide-react";
+import { BriefcaseBusiness, Home, LayoutGrid, User, Wrench } from "lucide-react";
 import { NavLink } from "../types";
 
 export const navLinks: NavLink[] = [
@@ -8,18 +8,23 @@ export const navLinks: NavLink[] = [
     icon: Home,
   },
   {
-    name: "About",
-    link: "/about",
-    icon: User,
-  },
-  {
     name: "Projects",
     link: "/projects",
     icon: LayoutGrid,
   },
   {
+    name: "Experience",
+    link: "/#experience",
+    icon: BriefcaseBusiness,
+  },
+  {
     name: "Skills",
     link: "/skills",
     icon: Wrench,
+  },
+  {
+    name: "About",
+    link: "/about",
+    icon: User,
   },
 ];

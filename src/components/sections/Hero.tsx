@@ -11,49 +11,27 @@ import {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-start md:mt-20 md:items-center px-5 md:px-6 overflow-hidden">
-      {/* Three.js Background */}
+    <section className="relative min-h-[92svh] overflow-hidden px-5 pt-28 pb-14 md:px-6 md:pt-32 lg:flex lg:items-center">
       <HeroCanvas />
 
-      {/* MOBILE LAYOUT */}
-      <div className="flex md:hidden flex-col w-full pt-28 pb-16 gap-6">
-        <HeroHeadline className="text-6xl font-bold tracking-tight leading-tight text-center" />
-        <ProfileImage
-          containerClassName="flex justify-center"
-          imageWrapperClassName="relative w-60"
-        />
-        <HeroBadge className="flex justify-center mt-2" />
-        <HeroDescription className="text-sm text-muted-foreground leading-relaxed text-center max-w-xs mx-auto" />
-        <TechStackPills
-          containerClassName="flex flex-wrap justify-center gap-2"
-          pillClassName="px-2.5 py-1 rounded-full text-[11px] font-medium border border-border bg-secondary/50 text-muted-foreground"
-        />
-        <div className="flex justify-center pt-5">
-          <HeroCTAs size="sm" />
-        </div>
-        <div className="flex justify-center pt-10 border-t border-border">
-          <SocialLinks />
-        </div>
-      </div>
-
-      {/* DESKTOP LAYOUT */}
-      <div className="hidden md:grid max-w-6xl w-full mx-auto grid-cols-2 gap-16 items-center">
-        <div className="flex flex-col gap-6 text-left">
-          <HeroHeadline className="text-7xl font-extrabold tracking-tight leading-tight" />
-          <HeroBadge className="flex justify-start" />
-          <HeroDescription className="text-lg text-muted-foreground leading-relaxed max-w-md" />
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+        <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
+          <HeroBadge className="flex justify-center lg:justify-start" />
+          <HeroHeadline className="max-w-4xl text-5xl font-extrabold leading-tight tracking-normal text-foreground sm:text-6xl lg:text-7xl" />
+          <HeroDescription className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg" />
           <TechStackPills
-            containerClassName="flex flex-wrap gap-2"
-            pillClassName="px-3 py-1 rounded-full text-xs font-medium border border-border bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors cursor-default"
+            containerClassName="flex flex-wrap justify-center gap-2 lg:justify-start"
+            pillClassName="rounded-md border border-border bg-background/70 px-2.5 py-1 text-[11px] font-medium text-muted-foreground hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-foreground"
           />
           <HeroCTAs size="lg" />
-          <div className="flex justify-start">
-            <SocialLinks />
+          <div className="flex justify-center pt-2 lg:justify-start">
+            <SocialLinks variant="simple" />
           </div>
         </div>
+
         <ProfileImage
-          containerClassName="flex justify-center"
-          imageWrapperClassName="relative w-96"
+          containerClassName="flex justify-center lg:justify-end"
+          imageWrapperClassName="relative w-full"
           isDesktop
         />
       </div>
