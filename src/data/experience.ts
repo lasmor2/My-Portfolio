@@ -10,15 +10,15 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
-    company: "NestArrival",
+    company: "AIFIOS",
     role: "Backend Developer",
     period: "May 2026 - Present",
     location: "Remote",
     summary:
-      "Building backend services and production workflows for a property platform.",
+      "Building backend services and production workflows for an AI-powered financial operations platform.",
     achievements: [
-      "Designing REST API modules for listing, verification, user, and admin workflows.",
-      "Modeling relational data flows for property and account management features.",
+      "Designing REST API modules for user, verification, admin, and financial workflow features.",
+      "Modeling relational data flows for accounts, transactions, and operational records.",
       "Supporting production deployment practices with Node.js, PostgreSQL, AWS, Docker, Nginx, and PM2.",
     ],
     tech: ["Node.js", "Express.js", "PostgreSQL", "Prisma", "AWS", "Docker"],
