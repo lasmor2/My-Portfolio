@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -15,7 +16,7 @@ export default function Reveal({
   children,
   direction = "up",
   delay = 0,
-  duration = 1,
+  duration = 0.8,
   className = "",
 }: RevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,23 +26,27 @@ export default function Reveal({
       const element = containerRef.current;
       if (!element) return;
 
-      const x = direction === "left" ? -50 : direction === "right" ? 50 : 0;
-      const y = direction === "up" ? 50 : direction === "down" ? -50 : 0;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(element, { autoAlpha: 1, clearProps: "transform" });
+        return;
+      }
 
+      const x = direction === "left" ? -24 : direction === "right" ? 24 : 0;
+      const y = direction === "up" ? 24 : direction === "down" ? -24 : 0;
+
+      gsap.set(element, { willChange: "transform, opacity" });
       gsap.fromTo(
         element,
+        { autoAlpha: 0, x, y, scale: 0.985 },
         {
-          opacity: 0,
-          x,
-          y,
-        },
-        {
-          opacity: 1,
+          autoAlpha: 1,
           x: 0,
           y: 0,
+          scale: 1,
           duration,
           delay,
-          ease: "power3.out",
+          ease: "power2.out",
+          clearProps: "willChange,transform",
         },
       );
     },

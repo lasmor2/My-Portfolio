@@ -21,7 +21,7 @@ export default function HeroSection() {
           <HeroDescription className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg" />
           <TechStackPills
             containerClassName="flex flex-wrap justify-center gap-2 lg:justify-start"
-            pillClassName="rounded-md border border-border bg-background/70 px-2.5 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-foreground"
+            pillClassName="rounded-md border border-border bg-background/70 px-2.5 py-1 text-[11px] font-medium text-muted-foreground hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-foreground"
           />
           <HeroCTAs size="lg" />
           <div className="flex justify-center pt-2 lg:justify-start">

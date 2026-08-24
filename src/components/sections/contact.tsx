@@ -85,7 +85,7 @@ export default function ContactSection() {
           <ScrollReveal direction="left" delay={0.2} stagger={0.08} className="space-y-3">
             <a
               href="mailto:okelolalekan2019@gmail.com"
-              className="flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm transition-colors hover:border-emerald-500/35"
+              className="effect-card effect-lift flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm hover:border-emerald-500/35"
             >
               <span className="rounded-md bg-emerald-500/10 p-3 text-emerald-600 dark:text-emerald-300">
                 <Mail size={20} />
@@ -100,7 +100,7 @@ export default function ContactSection() {
               </span>
             </a>
 
-            <div className="flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm">
+            <div className="effect-card effect-lift flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm hover:border-emerald-500/35">
               <span className="rounded-md bg-cyan-500/10 p-3 text-cyan-600 dark:text-cyan-300">
                 <MapPin size={20} />
               </span>
@@ -114,7 +114,7 @@ export default function ContactSection() {
               </span>
             </div>
 
-            <div className="flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm">
+            <div className="effect-card effect-lift flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm hover:border-emerald-500/35">
               <span className="rounded-md bg-violet-500/10 p-3 text-violet-600 dark:text-violet-300">
                 <Clock size={20} />
               </span>
@@ -133,7 +133,7 @@ export default function ContactSection() {
                 href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm transition-colors hover:border-emerald-500/35"
+                className="effect-card effect-lift flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm hover:border-emerald-500/35"
               >
                 <span className="rounded-md bg-emerald-500/10 p-3 text-emerald-600 dark:text-emerald-300">
                   <MessageCircle size={20} />
@@ -162,7 +162,7 @@ export default function ContactSection() {
           <ScrollReveal direction="right" delay={0.2}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-lg border border-border bg-background/80 p-5 shadow-xl backdrop-blur md:p-8"
+              className="effect-card rounded-lg border border-border bg-background/80 p-5 shadow-xl backdrop-blur md:p-8"
             >
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-foreground">Send a message</h3>
@@ -225,7 +225,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={loading || success}
-                  className={`h-12 w-full rounded-md font-bold transition-all active:scale-[0.99] ${
+                  className={`effect-button h-12 w-full rounded-md font-bold active:scale-[0.99] ${
                     success
                       ? "bg-emerald-600 text-white hover:bg-emerald-600"
                       : "bg-foreground text-background hover:bg-foreground/90"

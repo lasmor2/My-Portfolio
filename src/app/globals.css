@@ -165,3 +165,116 @@ body {
   --animate-shimmer: shimmer 2s infinite;
   --animate-fade-in-down: fadeInDown 0.2s ease-out;
 }
+
+.hero-ambient-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgb(16 185 129 / 0.12), transparent 32%),
+    linear-gradient(245deg, rgb(34 211 238 / 0.1), transparent 36%),
+    repeating-linear-gradient(
+      90deg,
+      rgb(148 163 184 / 0.08) 0,
+      rgb(148 163 184 / 0.08) 1px,
+      transparent 1px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgb(148 163 184 / 0.06) 0,
+      rgb(148 163 184 / 0.06) 1px,
+      transparent 1px,
+      transparent 72px
+    );
+  mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+  animation: ambient-pan 18s ease-in-out infinite alternate;
+}
+
+.effect-card {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.effect-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.12) 42%,
+    transparent 58%
+  );
+  opacity: 0;
+  transform: translateX(-35%);
+  transition:
+    opacity 220ms ease,
+    transform 700ms ease;
+}
+
+.effect-card:hover::before,
+.effect-card:focus-within::before {
+  opacity: 1;
+  transform: translateX(35%);
+}
+
+.effect-lift {
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    background-color 260ms ease;
+}
+
+.effect-lift:hover,
+.effect-lift:focus-within {
+  transform: translateY(-4px);
+}
+
+.effect-button {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+
+.effect-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgb(16 185 129 / 0.12);
+}
+
+.effect-button:active {
+  transform: translateY(0);
+}
+
+@keyframes ambient-pan {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .opacity-0 {
+    opacity: 1;
+  }
+}

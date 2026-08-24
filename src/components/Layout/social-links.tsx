@@ -54,7 +54,7 @@ export function SocialLinks({
             rel="noopener noreferrer"
             aria-label={ariaLabel}
             title={label}
-            className="rounded-md border border-border bg-secondary/50 p-2 text-muted-foreground transition-all hover:-translate-y-0.5 hover:bg-secondary hover:text-foreground"
+            className="effect-button rounded-md border border-border bg-secondary/50 p-2 text-muted-foreground hover:bg-secondary hover:text-foreground"
           >
             <Icon size={16} />
           </Link>
@@ -72,7 +72,7 @@ export function SocialLinks({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={ariaLabel}
-          className={`group inline-flex items-center gap-3 rounded-md border border-border bg-secondary/50 px-4 py-3 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 ${color}`}
+          className={`effect-button group inline-flex items-center gap-3 rounded-md border border-border bg-secondary/50 px-4 py-3 text-muted-foreground active:translate-y-0 ${color}`}
         >
           <Icon size={18} className="shrink-0 transition-transform duration-300 group-hover:scale-110" />
           <span className="flex flex-col">

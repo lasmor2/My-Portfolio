@@ -93,7 +93,7 @@ const NavBarPage = () => {
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="rounded-md p-1.5 text-(--nav-link) transition-colors hover:text-(--nav-link-hover) md:hidden"
+            className="effect-button rounded-md p-1.5 text-(--nav-link) hover:text-(--nav-link-hover) md:hidden"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -104,7 +104,7 @@ const NavBarPage = () => {
           <div className="ml-auto flex items-center gap-2.5">
             <Link
               href="/contact"
-              className="rounded-md bg-(--cta-bg) px-3 py-1.5 text-[11px] font-semibold text-(--cta-text) transition-all hover:bg-(--cta-hover) active:scale-95 md:text-xs"
+              className="effect-button rounded-md bg-(--cta-bg) px-3 py-1.5 text-[11px] font-semibold text-(--cta-text) hover:bg-(--cta-hover) active:scale-95 md:text-xs"
             >
               Hire / Contact
             </Link>

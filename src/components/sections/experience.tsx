@@ -29,7 +29,7 @@ export default function ExperienceSection() {
           {experiences.map((item) => (
             <article
               key={`${item.company}-${item.role}`}
-              className="rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur md:p-6"
+              className="effect-card effect-lift rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur hover:border-emerald-500/35 hover:shadow-xl hover:shadow-emerald-500/5 md:p-6"
             >
               <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                 <div>

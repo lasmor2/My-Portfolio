@@ -74,7 +74,7 @@ export default function AboutSection() {
               {aboutData.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg border border-border bg-background/80 p-4 text-center shadow-sm lg:text-left"
+                  className="effect-card effect-lift rounded-lg border border-border bg-background/80 p-4 text-center shadow-sm hover:border-emerald-500/35 lg:text-left"
                 >
                   <p className="text-2xl font-bold text-foreground">{stat.value}</p>
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
@@ -101,14 +101,14 @@ export default function AboutSection() {
           <ScrollReveal direction="up" delay={0.55}>
             <div className="flex flex-col gap-5 border-t border-border pt-7">
               <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-                <Button asChild size="lg" className="group rounded-md bg-foreground text-background hover:bg-foreground/90">
+                <Button asChild size="lg" className="effect-button group rounded-md bg-foreground text-background hover:bg-foreground/90">
                   <Link href="/projects">
                     View Projects
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
 
-                <Button asChild size="lg" variant="outline" className="rounded-md border-border bg-secondary/50 text-foreground hover:bg-secondary">
+                <Button asChild size="lg" variant="outline" className="effect-button rounded-md border-border bg-secondary/50 text-foreground hover:bg-secondary">
                   <Link href="/contact">
                     <Terminal className="h-4 w-4" />
                     Contact Me

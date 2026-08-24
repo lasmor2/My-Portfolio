@@ -24,7 +24,7 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex h-full flex-col rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5">
+    <article className="effect-card effect-lift group flex h-full flex-col rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/5">
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <span className="rounded-md border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
           {project.category}
@@ -73,7 +73,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
         {project.live && (
-          <Button asChild size="sm" className="rounded-md bg-emerald-600 text-white hover:bg-emerald-700">
+          <Button asChild size="sm" className="effect-button rounded-md bg-emerald-600 text-white hover:bg-emerald-700">
             <a href={project.live} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} />
               Live Demo
@@ -84,7 +84,7 @@ function ProjectCard({ project }: { project: Project }) {
           asChild
           variant="outline"
           size="sm"
-          className="rounded-md border-border bg-secondary/40 text-foreground hover:bg-secondary"
+          className="effect-button rounded-md border-border bg-secondary/40 text-foreground hover:bg-secondary"
         >
           <a href={project.github} target="_blank" rel="noopener noreferrer">
             <Github size={14} />

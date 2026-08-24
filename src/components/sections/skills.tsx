@@ -34,7 +34,7 @@ export default function SkillsSection() {
             return (
               <article
                 key={category.id}
-                className="rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/35 hover:shadow-xl hover:shadow-emerald-500/5"
+                className="effect-card effect-lift rounded-lg border border-border bg-background/80 p-5 shadow-sm backdrop-blur hover:border-emerald-500/35 hover:shadow-xl hover:shadow-emerald-500/5"
               >
                 <div className="mb-6 flex items-center gap-3">
                   <div className="rounded-md border border-emerald-500/20 bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-300">

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,7 +22,7 @@ export default function ScrollReveal({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.8,
+  duration = 0.65,
   className = "",
   stagger = 0,
 }: ScrollRevealProps) {
@@ -32,30 +33,35 @@ export default function ScrollReveal({
       const element = containerRef.current;
       if (!element) return;
 
-      const children = element.children;
+      const targets = Array.from(element.children);
+      if (!targets.length) return;
 
-      const x = direction === "left" ? -30 : direction === "right" ? 30 : 0;
-      const y = direction === "up" ? 30 : direction === "down" ? -30 : 0;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(targets, { autoAlpha: 1, clearProps: "transform" });
+        return;
+      }
 
+      const x = direction === "left" ? -18 : direction === "right" ? 18 : 0;
+      const y = direction === "up" ? 20 : direction === "down" ? -20 : 0;
+
+      gsap.set(targets, { willChange: "transform, opacity" });
       gsap.fromTo(
-        children,
+        targets,
+        { autoAlpha: 0, x, y, scale: 0.99 },
         {
-          opacity: 0,
-          x,
-          y,
-        },
-        {
-          opacity: 1,
+          autoAlpha: 1,
           x: 0,
           y: 0,
+          scale: 1,
           duration,
           delay,
           stagger,
-          ease: "back.out(1.2)",
+          ease: "power2.out",
+          clearProps: "willChange,transform",
           scrollTrigger: {
             trigger: element,
-            start: "top 85%",
-            toggleActions: "play none none none",
+            start: "top 88%",
+            once: true,
           },
         },
       );
