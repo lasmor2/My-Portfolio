@@ -4,10 +4,10 @@ import Footer from "@/components/Layout/footer";
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-transparent">
+    <div className="flex min-h-dvh flex-col bg-background">
       <NavBarPage />
 
-      <main className="flex-1 pt-24 md:pt-32 pb-20">
+      <main className="grow pt-24 md:pt-28">
         <ContactSection />
       </main>
 
