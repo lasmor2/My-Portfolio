@@ -40,6 +40,7 @@ export default function ContactSection() {
           name: formData.get("name"),
           email: formData.get("email"),
           message: formData.get("message"),
+          website: formData.get("website"),
         }),
       });
 
@@ -172,6 +173,17 @@ export default function ContactSection() {
               </div>
 
               <div className="space-y-5">
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="contact-website">Website</label>
+                  <Input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    autoComplete="off"
+                    tabIndex={-1}
+                  />
+                </div>
+
                 <div className="space-y-2">
                   <label htmlFor="contact-name" className="ml-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
                     Full Name
@@ -183,6 +195,7 @@ export default function ContactSection() {
                       name="name"
                       placeholder="Jane Recruiter"
                       required
+                      maxLength={80}
                       className="h-12 rounded-md border-border bg-secondary/45 pl-11 text-foreground placeholder:text-muted-foreground/40"
                     />
                   </div>
@@ -200,6 +213,7 @@ export default function ContactSection() {
                       type="email"
                       placeholder="jane@company.com"
                       required
+                      maxLength={160}
                       className="h-12 rounded-md border-border bg-secondary/45 pl-11 text-foreground placeholder:text-muted-foreground/40"
                     />
                   </div>
@@ -216,6 +230,7 @@ export default function ContactSection() {
                       name="message"
                       placeholder="Tell me about the role, project, or backend problem you want help with."
                       required
+                      maxLength={3000}
                       rows={6}
                       className="rounded-md border-border bg-secondary/45 pl-11 text-foreground placeholder:text-muted-foreground/40"
                     />
