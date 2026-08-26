@@ -4,11 +4,13 @@ A recruiter-focused portfolio for Lekan Okelola, a Backend & Full-Stack Engineer
 
 ## Highlights
 
-- Backend-first hero positioning and technology keywords.
-- Featured engineering work with role, architecture, implementation details, and results.
-- Experience, skills, about, and contact sections on the homepage for fast recruiter review.
+- Backend-first positioning with production-oriented engineering case studies.
+- Private/client systems are clearly marked instead of being linked to unrelated public repositories.
+- Featured work explains role, architecture, engineering decisions, technology, and practical outcome.
+- Skills are grouped by engineering area rather than subjective percentage ratings.
 - SEO metadata, canonical URL, sitemap, robots, Open Graph, Twitter card data, and JSON-LD structured data.
 - Responsive Next.js 16 App Router UI with Tailwind CSS, GSAP, and Three.js.
+- Hardened Resend contact API with server-side validation, length limits, honeypot spam protection, rate limiting, and configurable sender/recipient addresses.
 
 ## Tech Stack
 
@@ -32,9 +34,13 @@ Create a `.env.local` file for contact form and public site settings:
 
 ```env
 RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=okelolalekan2019@gmail.com
+CONTACT_FROM_EMAIL=Portfolio Contact <portfolio@lekanokelola.com>
 NEXT_PUBLIC_SITE_URL=https://lekanokelola.com
 NEXT_PUBLIC_WHATSAPP_NUMBER=your_whatsapp_number
 ```
+
+`CONTACT_FROM_EMAIL` should use a sender on a domain verified in Resend. If it is not configured, development falls back to Resend's onboarding sender.
 
 ## Production Checks
 

@@ -18,7 +18,7 @@ export default function SkillsSection() {
               A stack built around APIs, data, and production delivery.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              The homepage now foregrounds backend keywords while still showing the full-stack and mobile range needed for product teams.
+              Backend-focused engineering across APIs, databases, cloud deployment, and the web and mobile clients that consume those services.
             </p>
           </div>
         </ScrollReveal>
@@ -45,38 +45,20 @@ export default function SkillsSection() {
                   </h3>
                 </div>
 
-                <div className="space-y-5">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   {category.skills.map((skill) => {
                     const SkillIcon = skill.icon;
                     return (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex items-center justify-between gap-3">
-                          <div className="flex items-center gap-2.5">
-                            <span className="rounded-md bg-secondary p-1 text-emerald-500">
-                              <SkillIcon size={14} />
-                            </span>
-                            <span className="text-sm font-medium text-foreground">
-                              {skill.name}
-                            </span>
-                          </div>
-                          <span className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                            {skill.level}
-                          </span>
-                        </div>
-
-                        <div
-                          className="h-1.5 w-full overflow-hidden rounded-full bg-secondary"
-                          role="progressbar"
-                          aria-valuenow={skill.percentage}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                          aria-label={`${skill.name} proficiency`}
-                        >
-                          <div
-                            className="h-full rounded-full bg-linear-to-r from-emerald-600 to-cyan-500"
-                            style={{ width: `${skill.percentage}%` }}
-                          />
-                        </div>
+                      <div
+                        key={skill.name}
+                        className="flex items-center gap-3 rounded-md border border-border/70 bg-secondary/35 px-3 py-2.5"
+                      >
+                        <span className="rounded-md bg-background p-1.5 text-emerald-500 shadow-sm">
+                          <SkillIcon size={15} />
+                        </span>
+                        <span className="text-sm font-medium text-foreground">
+                          {skill.name}
+                        </span>
                       </div>
                     );
                   })}
