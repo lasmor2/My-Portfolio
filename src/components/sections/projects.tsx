@@ -2,7 +2,7 @@
 
 import { Project, projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, Github, GitBranch, Server } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, GitBranch, LockKeyhole, Server } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 
 function ArchitectureFlow({ steps }: { steps: string[] }) {
@@ -80,17 +80,25 @@ function ProjectCard({ project }: { project: Project }) {
             </a>
           </Button>
         )}
-        <Button
-          asChild
-          variant="outline"
-          size="sm"
-          className="effect-button rounded-md border-border bg-secondary/40 text-foreground hover:bg-secondary"
-        >
-          <a href={project.github} target="_blank" rel="noopener noreferrer">
-            <Github size={14} />
-            Codebase
-          </a>
-        </Button>
+
+        {project.github ? (
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="effect-button rounded-md border-border bg-secondary/40 text-foreground hover:bg-secondary"
+          >
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              <Github size={14} />
+              Codebase
+            </a>
+          </Button>
+        ) : project.sourceLabel ? (
+          <span className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/40 px-3 py-2 text-xs font-semibold text-muted-foreground">
+            <LockKeyhole size={14} />
+            {project.sourceLabel}
+          </span>
+        ) : null}
       </div>
     </article>
   );
@@ -114,7 +122,7 @@ export default function ProjectsSection() {
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Each project is framed around role, system shape, engineering decisions, and the practical result instead of screenshots alone.
+              Production and public projects are presented with clear roles, system architecture, engineering decisions, and outcomes. Private code is marked explicitly.
             </p>
           </div>
         </ScrollReveal>
