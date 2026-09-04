@@ -30,7 +30,8 @@ export default function ContactSection() {
     setLoading(true);
     setError(null);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
       const res = await fetch("/api/contact", {
@@ -46,7 +47,7 @@ export default function ContactSection() {
 
       if (res.ok) {
         setSuccess(true);
-        e.currentTarget.reset();
+        form.reset();
         setTimeout(() => setSuccess(false), 5000);
       } else {
         const data = await res.json().catch(() => ({}));
