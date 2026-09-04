@@ -85,7 +85,7 @@ export default function ContactSection() {
 
           <ScrollReveal direction="left" delay={0.2} stagger={0.08} className="space-y-3">
             <a
-              href="mailto:okelolalekan2019@gmail.com"
+              href="mailto:contact@lekanokelola.com"
               className="effect-card effect-lift flex items-start gap-4 rounded-lg border border-border bg-background/80 p-4 shadow-sm hover:border-emerald-500/35"
             >
               <span className="rounded-md bg-emerald-500/10 p-3 text-emerald-600 dark:text-emerald-300">
@@ -96,7 +96,7 @@ export default function ContactSection() {
                   Email
                 </span>
                 <span className="mt-1 block font-medium text-foreground">
-                  okelolalekan2019@gmail.com
+                  contact@lekanokelola.com
                 </span>
               </span>
             </a>
