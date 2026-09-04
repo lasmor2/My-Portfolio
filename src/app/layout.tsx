@@ -87,7 +87,7 @@ const structuredData = {
   name: "Lekan Okelola",
   url: siteUrl,
   image: `${siteUrl}/images/my-pix.png`,
-  email: "mailto:okelolalekan2019@gmail.com",
+  email: "mailto:contact@lekanokelola.com",
   jobTitle: "Backend & Full-Stack Engineer",
   address: {
     "@type": "PostalAddress",
